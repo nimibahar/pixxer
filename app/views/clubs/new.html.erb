@@ -7,8 +7,11 @@
     <%= f.input :city %>
     <%= f.input :description %>
 
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.simple_fields_for Photo.new do |p| %>
+      <%= p.input :photo %>
+      <%= p.input :photo_cache, as: :hidden %>
+    <% end %>
+
     <%= f.button :submit %>
   <% end %>
 
