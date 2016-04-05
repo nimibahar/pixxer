@@ -9,6 +9,14 @@ class ClubsController < ApplicationController
   def new
     @club = Club.new
   end
+  def create
+    @club = Club.new(club_params)
+    if @club.save
+      redirect_to club_path(@club)
+    else
+      render :new
+    end
+  end
 
   def show
 
@@ -21,6 +29,7 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name :address, :city, :description :owner_id)
+    params.require(:club).permit(:name, :address, :city, :description,
+     :owner_id, :photo, :photo_cache)
   end
 end
