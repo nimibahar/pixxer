@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'photos/create'
 
   devise_for :users
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
   resources :clubs do
     resources :photos, only: [:create]
   end
+
+  resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
