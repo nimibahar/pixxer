@@ -1,4 +1,4 @@
 class Club < ActiveRecord::Base
-  mount_uploader :photo, PhotoUploader
   belongs_to :owner
+  has_many :photos
 end
