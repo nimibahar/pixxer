@@ -1,16 +1,14 @@
 <div class="container">
-        <div class="row">
-
-          <% @clubs.each do |club| %>
-          <div class="col-xs-12 col-md-4">
-            <%= link_to club_path(club) do %>
-            <div class="card small" style="background-image: url('<%= image_url club.photos.first.try(:photo) %>');" >
-                <div class="card-category"><%= club.name %></div>
-                <div class="card-description"> <%= club.city %> </div>
-
-            </div>
-            <% end %>
-          </div>
-          <% end %>
-        </div>
-      </div>
+  <div class="row">
+   <% @clubs.each do |club| %>
+   <div class="col-xs-12 col-md-4">
+    <%= link_to club_path(club) do %>
+    <div class="card small" style="background-image: url('<%= image_url club.photos.first.try(:photo) %>');" >
+      <div class="card-category"><%= club.name %></div>
+      <div class="card-description"> <%= club.city %> </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+</div>

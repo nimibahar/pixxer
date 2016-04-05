@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_for :owners
+  get 'dashboard' => 'clubs#index'
+
   root to: 'pages#home'
+
 
   resources :clubs do
     resources :photos, only: [:create]

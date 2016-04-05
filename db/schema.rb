@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160405132355) do
 
   # These are extensions that must be enabled in order to support this database
@@ -28,6 +29,18 @@ ActiveRecord::Schema.define(version: 20160405132355) do
   end
 
   add_index "clubs", ["owner_id"], name: "index_clubs_on_owner_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.string   "description"
+    t.string   "type"
+    t.string   "dress_code"
+    t.integer  "club_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "events", ["club_id"], name: "index_events_on_club_id", using: :btree
 
   create_table "owners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -76,5 +89,9 @@ ActiveRecord::Schema.define(version: 20160405132355) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "clubs", "owners"
+<<<<<<< HEAD
+  add_foreign_key "events", "clubs"
+=======
   add_foreign_key "photos", "clubs"
+>>>>>>> d1f9c655f2034ebd5193acf68fe575d84a9fe4f2
 end
