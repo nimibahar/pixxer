@@ -170,6 +170,9 @@ footer.page-footer {
     font-family: Roboto, sans-serif;
     margin-top: 3em;
     font-weight: 300;
+    bottom: 0;
+    position:absolute;
+    width:100%;
     .link-section {
         padding-bottom: 20px;
     }
@@ -234,5 +237,17 @@ footer.page-footer {
 body.modal-open {
   overflow: inherit;
   padding-right: 0 !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+.full-bg-img {
+    background: url("http://www.lasvegasdiscountdeals.com/wp-content/gallery/xs/xs-the-nightclub-crop-photo-by-barbara-kraft.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 

@@ -3,7 +3,11 @@ class ClubsController < ApplicationController
   before_action :club, only: [:show, :edit, :destroy, :update]
 
   def index
-    @clubs = Club.all
+    if current_owner
+      @clubs = current_owner.clubs
+    else
+      @clubs = Club.all
+    end
   end
 
   def new

@@ -1,5 +1,5 @@
 <footer class="page-footer blue center-on-small-only">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-6">
         <h5 class="white-text">Footer Content</h5>
@@ -8,7 +8,11 @@
       <div class="col-md-6">
         <h5 class="white-text">Links</h5>
         <ul>
-          <li><%= link_to t(".sign_in", default: "Owner Login"), new_owner_session_path %></li>
+          <% if current_owner.nil? %>
+            <li><%= link_to t(".sign_in", default: "Owner Login"), new_owner_session_path %></li>
+          <% else %>
+            <li><%= link_to "Owner Logout", destroy_owner_session_path, method: :delete %></li>
+          <% end %>
           <!-- <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
           <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
           <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li> -->
@@ -17,7 +21,7 @@
     </div>
   </div>
   <div class="footer-copyright text-center rgba-black-light">
-    <div class="container-fluid">
+    <div class="container">
       © 2015 Copyright: <a href="#"> blablalink </a>
     </div>
   </div>
