@@ -1,0 +1,20 @@
+<div class="container">
+<h1 class="text-center">Edit Club</h1>
+
+<%= simple_form_for @club do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :city %>
+    <%= f.input :description %>
+
+    <%= f.button :submit %>
+  <% end %>
+
+<br>
+<h3>Add Another Photo </h3>
+<%= simple_form_for [@club, Photo.new] do |p| %>
+      <%= p.input :photo %>
+      <%= p.input :photo_cache, as: :hidden %>
+      <%= p.button :submit %>
+    <% end %>
+</div>

@@ -16,6 +16,10 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     if @club.save
+      @club.photos.create(
+        photo:       params[:club][:photo][:photo],
+        photo_cache: params[:club][:photo][:photo_cache]
+      )
       redirect_to club_path(@club)
     else
       render :new
@@ -25,6 +29,16 @@ class ClubsController < ApplicationController
   def show
 
   end
+
+  def update
+    @club.update_attributes(club_params)
+    if @club.save
+      redirect_to club_path(@club)
+    else
+      render :new
+    end
+  end
+
 
   private
 

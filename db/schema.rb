@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405121903) do
+
+ActiveRecord::Schema.define(version: 20160405132355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +60,16 @@ ActiveRecord::Schema.define(version: 20160405121903) do
   add_index "owners", ["email"], name: "index_owners_on_email", unique: true, using: :btree
   add_index "owners", ["reset_password_token"], name: "index_owners_on_reset_password_token", unique: true, using: :btree
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "club_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "photo"
+    t.string   "photo_cache"
+  end
+
+  add_index "photos", ["club_id"], name: "index_photos_on_club_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -78,5 +89,9 @@ ActiveRecord::Schema.define(version: 20160405121903) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "clubs", "owners"
+<<<<<<< HEAD
   add_foreign_key "events", "clubs"
+=======
+  add_foreign_key "photos", "clubs"
+>>>>>>> d1f9c655f2034ebd5193acf68fe575d84a9fe4f2
 end

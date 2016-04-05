@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
+  get 'photos/create'
+
   devise_for :users
   devise_for :owners
   get 'dashboard' => 'clubs#index'
 
   root to: 'pages#home'
 
-  resources :clubs
 
-
-
-
+  resources :clubs do
+    resources :photos, only: [:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
