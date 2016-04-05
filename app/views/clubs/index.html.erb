@@ -1,16 +1,16 @@
 <div class="container">
-        <div class="row">
+  <div class="row">
+    <% @clubs.each do |club| %>
+    <div class="col-xs-12 col-md-4">
+      <%= link_to club_path(club) do %>
 
-          <% @clubs.each do |club| %>
-          <div class="col-xs-12 col-md-4">
-            <%= link_to club_path(club) do %>
-            <div class="card" style="background-image: url('<%= image_url flat.photos.first.try(:cloudinary) %>');" >
-                <div class="card-category"><%= club.name %></div>
-                <div class="card-description"> <%= club.city %> </div>
+      <div class="card-category"><%= club.name %></div>
+      <div class="card-description"> <%= club.city %> </div>
+    </div>
+    <% end %>
+  </div>
+      <% end %>
+</div>
 
-            </div>
-            <% end %>
-          </div>
-          <% end %>
-        </div>
-      </div>
+
+

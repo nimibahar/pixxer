@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+ex_owner = Owner.create(email: "blablabla@gmail.com", password: "12", password_confirmation: "12")
+
+
+ex_club = Club.create(name: "Lavo", city: "New York", owner_id: ex_owner.id)
+
+Event.create(club_id: ex_club.id, starts_at: DateTime.new(2016, 4, 15) )
+
+
+
