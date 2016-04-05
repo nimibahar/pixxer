@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'photos/create'
-
   devise_for :users
   devise_for :owners
   get 'dashboard' => 'clubs#index'
