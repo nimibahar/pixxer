@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405170711) do
+ActiveRecord::Schema.define(version: 20160405203226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,23 @@ ActiveRecord::Schema.define(version: 20160405170711) do
   add_index "photos", ["club_id"], name: "index_photos_on_club_id", using: :btree
   add_index "photos", ["event_id"], name: "index_photos_on_event_id", using: :btree
 
+  create_table "tables", force: :cascade do |t|
+    t.integer  "seats"
+    t.integer  "available_seats"
+    t.integer  "price"
+    t.integer  "per_seat"
+    t.string   "payment_status"
+    t.string   "preferences"
+    t.string   "promotion"
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "tables", ["event_id"], name: "index_tables_on_event_id", using: :btree
+  add_index "tables", ["user_id"], name: "index_tables_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -93,4 +110,6 @@ ActiveRecord::Schema.define(version: 20160405170711) do
   add_foreign_key "events", "clubs"
   add_foreign_key "photos", "clubs"
   add_foreign_key "photos", "events"
+  add_foreign_key "tables", "events"
+  add_foreign_key "tables", "users"
 end
