@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160406143926) do
   create_table "events", force: :cascade do |t|
     t.datetime "starts_at"
     t.string   "description"
-    t.string   "type"
+    t.string   "event_type"
     t.string   "dress_code"
     t.integer  "club_id"
     t.datetime "created_at",  null: false

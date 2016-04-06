@@ -1,2 +1,23 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 ">
+      <h4><span class="Roboto-Bold"> Club <%= @club.name %> - </span>
+        <span class="Roboto-Thin"> <%= @club.description %> </span></h4>
+
+        <h5><span class="Roboto-Bold"><%= @club.address %>, </span>
+          <span class="Roboto-Thin"><%= @club.city %></span></h5>
+        </div>
+      </div>
+
+      <h2><%= @event.starts_at.strftime("%-d %b") %>  : <%= @event.description %> </h2>
+        <div class="row">
+
+          <% @event.photos.each do |photo| %>
+          <div class="col-xs-12 col-sm-4">
+            <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %> </div>
+          </div>
+          <% end %>
+          <%= link_to "Reserve Tables", events_path(club_id: @club.id), class:"btn btn-primary" %>
+        </div>
+      </div>

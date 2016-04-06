@@ -1,19 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
-    <h2><%= @club.name %></h2>
-    <h3><%= @club.address %></h3>
-    <h3><%= @club.city %></h3>
-    <h3><%= @club.description %></h3>
 
+    <div class="col-xs-12 ">
+      <h2><span class="Roboto-Bold"> Club <%= @club.name %> - </span>
+        <span class="Roboto-Thin"> <%= @club.description %> </span></h2>
 
-      <% @club.photos.each do |photo| %>
-
-      <div> <%= cl_image_tag photo.photo, height: 400, width: 400, crop: :fill %>
+        <h3><span class="Roboto-Bold"><%= @club.address %>, </span>
+          <span class="Roboto-Thin"><%= @club.city %></span></h3>
+        </div>
       </div>
 
-      <% end %>
+      <div class="row">
+
+        <% @club.photos.each do |photo| %>
+        <div class="col-xs-12 col-sm-4">
+          <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %> </div>
+        </div>
+        <% end %>
+        <%= link_to "Events", events_path(club_id: @club.id), class:"btn btn-primary" %>
+      </div>
 
     </div>
-  </div>
-</div>
+

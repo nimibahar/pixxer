@@ -3,14 +3,21 @@ class EventsController < ApplicationController
   before_action :event, only: [:show, :edit, :destroy, :update]
 
   def index
-    if current_owner
-      @events = Event.where(params[:club_id])
-    else
-      @events = Event.all
-    end
+    @club = Club.find(params[:club_id])
+    @events = @club.events
+
+# =======
+#     if current_owner
+#       @events = Event.where(params[:club_id])
+#     else
+#       @events = Event.all
+#     end
+# >>>>>>> master
   end
 
   def show
+    @event = Event.find(params[:id])
+    @club = @event.club
   end
 
   def new

@@ -1,13 +1,28 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 ">
+      <h4><span class="Roboto-Bold"> Club <%= @club.name %> - </span>
+        <span class="Roboto-Thin"> <%= @club.description %> </span></h4>
+
+        <h5><span class="Roboto-Bold"><%= @club.address %>, </span>
+          <span class="Roboto-Thin"><%= @club.city %></span></h5>
+        </div>
+      </div>
+    </div>
+
+
+
 <div class="container">
   <div class="row">
    <% @events.each do |event| %>
    <div class="col-xs-12 col-md-4">
     <%= link_to event_path(event) do %>
-    <div class="card small" >
+
+    <div class="card small" style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
       <div class="card-category"><%= event.starts_at %></div>
-      <div class="card-description"> <%= event.club_id %> </div>
+      <div class="card-description"> <%= event.description %> </div>
     </div>
     <% end %>
   </div>
