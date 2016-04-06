@@ -1,8 +1,6 @@
 class PhotosController < ApplicationController
   def create
-    raise
     p = Photo.new(photo_params)
-    if
   end
 
   private
