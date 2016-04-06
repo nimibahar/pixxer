@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+   <table class="table">
+     <thead>
+       <tr>
+         <th>Seats</th>
+         <th>Available</th>
+         <th>Table Price</th>
+         <th>Seat Price</th>
+         <th>Status</th>
+         <th colspan="2"></th>
+       </tr>
+     </thead>
+
+     <tbody>
+       <% @tables.each do |table| %>
+       <div class="col-xs-12 col-md-4">
+         <tr>
+           <td>  <%= table.seats %> </td>
+           <td>  <%= table.available_seats %> </td>
+           <td>  €<%= table.price %> </td>
+           <td>  €<%= table.per_seat %> </td>
+           <td>  <%= table.payment_status %></td>
+
+           <td> <%= link_to "Host Info", table_path(table) %> </td>
+           <td> <%= link_to "More Info", table_path(table) %> </td>
+         </tr>
+       </div>
+       <% end %>
+     </tbody>
+   </table>
+ </div>
+</div>
+
