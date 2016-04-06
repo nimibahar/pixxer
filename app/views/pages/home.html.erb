@@ -1,12 +1,67 @@
  <!-- Section: Intro -->
-    <section id="intro" class="full-bg-img">
+    <!-- <section id="intro" class="full-bg-img">
         <div class="container">
             <div class="verticalcenter text-center white-text">
-                <h3>Some awesome heading</h3>
+                <h3>Some awesome heading</h3> -->
                 <!--Call to action buttons-->
                 <!-- <a href="#" class="btn btn-primary waves-effect waves-light">Contact me</a>
                 <a href="#" class="btn btn-primary waves-effect waves-light">Learn more</a> -->
-            </div>
+          <!--   </div>
         </div>
-    </section>
+    </section> -->
     <!--/. Section: Intro -->
+
+
+<div class="banner">
+  <div class="banner-content text-center">
+    <h1>PIXXER</h1>
+    <p>Own the night!</p>
+    <div class="wrapper-form">
+      <form class="form-inline" role="form" action="clubs/search">
+        <div class="form-group">
+
+
+          <input type="text" class="form-control" id="homepage-search" name="location" placeholder="Where do you want to party?">
+
+
+        </div>
+        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+   <% @events.each do |event| %>
+   <div class="col-xs-12 col-md-4">
+    <%= link_to event_path(event) do %>
+    <div class="card small" >
+      <div class="card-category"><%= event.starts_at %></div>
+      <div class="card-description"> <%= event.club_id %> </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+</div>
+
+<!-- <nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav> -->

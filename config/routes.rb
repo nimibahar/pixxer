@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_for :owners
   get 'dashboard' => 'clubs#index'
+  get 'privacy' => 'pages#privacy'
 
   root to: 'pages#home'
 

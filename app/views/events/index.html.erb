@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <div class="row">
 
@@ -12,11 +13,13 @@
     </div>
 
 
+
 <div class="container">
   <div class="row">
    <% @events.each do |event| %>
    <div class="col-xs-12 col-md-4">
     <%= link_to event_path(event) do %>
+
     <div class="card small" style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
       <div class="card-category"><%= event.starts_at %></div>
       <div class="card-description"> <%= event.description %> </div>
