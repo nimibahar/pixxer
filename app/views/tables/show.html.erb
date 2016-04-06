@@ -1,0 +1,15 @@
+
+<div class="container">
+
+  <p> Total Seats <%= @table.seats %>   </p>
+  <p> Available <%= @table.available_seats %> </p>
+  <p>Table Price €<%= @table.price %> </p>
+  <p>Seat Price €<%= @table.per_seat %> </p>
+  <p>Booking Status <%= @table.payment_status %></p>
+  <p> Preferences <%= @table.preferences %> </p>
+  <p> Promotion <%= @table.promotion %> </p>
+  <p> <%= button_to "Host", table_path(@table) %> </p>
+  <p> <%= button_to "More Info", table_path(@table) %> </p>
+
+</div>
+

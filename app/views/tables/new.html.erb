@@ -1,0 +1,13 @@
+<div class="container">
+<h1 class="text-center">New Table</h1>
+
+<%= simple_form_for @table do |f| %>
+    <%= f.input :seats %>
+    <%= f.input :price %>
+    <%= f.input :preferences %>
+    <%= f.input :promotion %>
+
+    <%= f.button :submit %>
+  <% end %>
+
+</div>
