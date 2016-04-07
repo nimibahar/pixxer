@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :photos, only: [:create]
   end
 
+  #get '/table/:id/host', to: 'tables#host', as: 'table_host'
   resources :events, :tables
 
   # The priority is based upon order of creation: first created -> highest priority.
