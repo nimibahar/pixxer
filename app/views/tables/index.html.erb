@@ -37,7 +37,7 @@
              <% if table.user_id %>
              <td> <%= link_to "Host Info", table_path(table) %> </td>
              <% elsif current_user %>
-             <td> <%= link_to "Host this Table", table_host_path(table, club_id: @club.id, event_id: @event.id) %> </td>
+             <td> <%= link_to "Host this Table", new_booking_path(table, club_id: @club.id, event_id: @event.id, table_id: table.id) %> </td>
              <% else %>
              <td> <%= link_to "Sign In to Host", new_user_session_path %> </td>
              <% end %>
