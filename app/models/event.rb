@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   has_many :tables
 
 
+
   def cheapest_table
     cheapest = 100000000000000
     self.tables.each do |table|
@@ -13,4 +14,5 @@ class Event < ActiveRecord::Base
     end
     cheapest.to_s
   end
+
 end

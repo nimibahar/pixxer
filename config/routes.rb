@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :photos, only: [:create]
   end
 
+  #get '/table/:id/host', to: 'tables#host', as: 'table_host'
   resources :events, :tables
+  resources :bookings, only: [:create, :new, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
