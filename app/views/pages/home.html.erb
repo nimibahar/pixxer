@@ -12,31 +12,40 @@
     <!--/. Section: Intro -->
 
 
-<div class="banner">
-  <div class="banner-content text-center">
-    <h1>PIXXER</h1>
-    <p>Own the night!</p>
-    <div class="wrapper-form">
-      <form class="form-inline" role="form" action="clubs/search">
-        <div class="form-group">
+<div class="mask rgba-black-light">
+  <div class="banner">
+    <div class="banner-content text-center">
+      <h1>PIXXER</h1>
+      <p>Own the night!</p>
+      <div class="wrapper-form">
+        <form class="form-inline" role="form" action="clubs">
+          <div class="form-group">
 
 
-          <input type="text" class="form-control" id="homepage-search" name="location" placeholder="Where do you want to party?">
+            <input type="text" class="form-control" id="homepage-search" name="location" placeholder="Find Your Party">
 
 
-        </div>
-        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-      </form>
+          </div>
+
+          <button type="submit" class="btn btn-default" ><i class="fa fa-search"></i></button>
+
+        </form>
+      </div>
     </div>
   </div>
 </div>
 
+<div class="divider-new">Upcoming events</div>
+
 <div class="container">
   <div class="row">
    <% @events.each do |event| %>
-   <div class="col-xs-12 col-md-4">
+   <div class="col-xs-12 col-md-3">
+    <!-- image card -->
+
     <%= link_to event_path(event) do %>
-    <div class="card small" >
+
+    <div class="card small card-product hoverable" >
       <div class="card-category"><%= event.starts_at %></div>
       <div class="card-description"> <%= event.club_id %> </div>
     </div>

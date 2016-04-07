@@ -16,7 +16,6 @@ class ClubsController < ApplicationController
   def create
     @club = Club.new(club_params)
     if @club.save
-      raise
       @club.photos.create(
         photo:       params[:club][:photo][:photo],
         photo_cache: params[:club][:photo][:photo_cache]

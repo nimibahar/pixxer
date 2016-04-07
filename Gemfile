@@ -20,6 +20,10 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-material-design'
+end
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'

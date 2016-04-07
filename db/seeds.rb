@@ -28,6 +28,9 @@ e = Event.create(club_id: c.id, starts_at: "2016-5-27",
     dress_code: "Casual")
 
 Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943569/xd44lxpuwmjuf6insbda.jpg"))
+
+
+Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943569/xd44lxpuwmjuf6insbda.jpg"))
 # Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943542/xpgw8i8oarwvjx5kffpi.jpg"))
 # Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943520/pk6fjaalwyivzy3nlcg6.png"))
 
@@ -46,6 +49,9 @@ e1 = Event.create(club_id: c.id, starts_at: "2016-5-9",
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944537/po8vl9a6roljivi70gmy.jpg"))
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944514/zco5dxutbaxliisjj8xp.jpg"))
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944496/ptia77casyk2ryg39n3z.jpg"))
+
+# Event.create(club_id: ex_club.id, starts_at: DateTime.new(2016, 4, 15) )
+
 5.times do |d|
   Table.create(seats: 10, available_seats: 10, price: 1000, per_seat: 100, payment_status: "empty", preferences: "Whisky, Rum, Cocktails", event_id: e1.id)
 end
