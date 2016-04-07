@@ -8,14 +8,10 @@ class BookingsController < ApplicationController
 
   def create
     table = Table.find(params[:booking][:table_id])
-
     booking = Booking.new(booking_params)
-    table.new_availability(booking.seats)
-    #booking.new_from_table(seats)
-    booking.price = booking.seats * table.per_seat
-    booking.status = "Hosted"
+    table.new_availability(booking.seats, current_user.id)
+    booking.new_from_table(table)
     booking.user_id = current_user.id
-    booking.table_id = table.id
     if booking.save
       redirect_to table_path(table)
     else
