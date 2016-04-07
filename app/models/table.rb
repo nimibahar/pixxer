@@ -6,8 +6,7 @@ class Table < ActiveRecord::Base
   def new_availability(seats, user_id)
     self.available_seats = self.available_seats - seats
     self.payment_status = "Hosted"
-    self.save
-    byebug
     self.user_id = user_id
+    self.save
   end
 end
