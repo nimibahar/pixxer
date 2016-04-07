@@ -1,5 +1,5 @@
 class TablesController < ApplicationController
-  before_action :table, only: [:show, :edit, :destroy, :update]
+  before_action :table, only: [:show, :edit, :destroy, :update, :host]
 
   def create
     table = Table.new(table_params)
@@ -28,7 +28,9 @@ class TablesController < ApplicationController
   end
 
   def index
-    @tables = Table.where(event_id: params[:event_id])
+    @club = Club.find(params[:club_id])
+    @event = Event.find(params[:event_id])
+    @tables = @event.tables
   end
 
   def destroy
