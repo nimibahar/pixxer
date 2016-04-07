@@ -1,10 +1,13 @@
+<!-- clubs index page-->
 <div class="container">
   <div class="row">
   <h1> Clubs </h1>
    <% @clubs.each do |club| %>
    <div class="col-xs-12 col-md-4">
     <%= link_to club_path(club) do %>
-    <div class="card small" style="background-image: url('<%= image_url club.photos.first.try(:photo) %>');" >
+    <div class="card small card-product hoverable">
+      <div class='card-thumbnail' style="background-image: url('<%= image_url club.photos.first.try(:photo) %>');" >
+      </div>
       <div class="card-category"><%= club.name %></div>
       <div class="card-description"> <%= club.city %> </div>
     </div>
