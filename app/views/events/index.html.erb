@@ -30,7 +30,7 @@
           <div class="card small card-product hoverable">
 
             <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
-              <div class="price"><%= event.cheapest_table + "$$$$" %></div>
+              <div class="price"><%="Tables starts @" + event.cheapest_table + " " + "$" %></div>
             </div>
             <div class="row">
               <div class="col-xs-6">
@@ -51,7 +51,6 @@
               </div>
             </div>
           </div>
-
         <% end %>
       </div>
     <% end %>
