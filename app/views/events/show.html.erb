@@ -1,26 +1,30 @@
 <!-- event page -->
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 ">
-      <h4><span class="Roboto-Bold"> Club <%= @club.name %> - </span>
-        <span class="Roboto-Thin"> <%= @club.description %> </span></h4>
-
-        <h5><span class="Roboto-Bold"><%= @club.address %>, </span>
-          <span class="Roboto-Thin"><%= @club.city %></span></h5>
+    <div class="col-xs-12 col-sm-6">
+      <h4>
+        <span class="Roboto-Bold"> Club <%= @club.name %></span>
+        <span class="Roboto-Thin"> <%= @club.description %></span><br>
+      </h4>
+      <h5>
+        <span class="Roboto-Bold"><%= @club.address %>, </span><br>
+        <span class="Roboto-Thin"><%= @club.city %></span><br>
+        <span class="Roboto-Thin"><%= @event.starts_at.strftime("%-d %b") %><br><%= @event.description %></span>
+      </h5>
+    </div>
+    <% @event.photos.each do |photo| %>
+    <div class="col-xs-12 col-sm-6">
+      <div class="card card-image hoverable">
+        <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %>
         </div>
       </div>
-
-      <h2><%= @event.starts_at.strftime("%-d %b") %>  : <%= @event.description %> </h2>
-        <div class="row">
-
-          <% @event.photos.each do |photo| %>
-          <div class="col-xs-12 col-sm-4">
-            <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %> </div>
-          </div>
-          <% end %>
-
-        </div>
-        <div>
-            <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"btn btn-primary" %>
-        </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div>
+        <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"btn reg-btn" %>
       </div>
+  </div>
+</div>
+

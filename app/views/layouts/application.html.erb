@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <title>PIxxER</title>
+    <title>piXXer</title>
 
     <%= csrf_meta_tags %>
 
@@ -13,8 +13,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
+    <main>
       <%= yield %>
+    </main>
 
     <%= render 'shared/footer' %>
 

@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
 
 
   def cheapest_table
-    cheapest = 100000000000000
+    cheapest = 1000000
     self.tables.each do |table|
       cheapest = table.price if table.price<cheapest
     end

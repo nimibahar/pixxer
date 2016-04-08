@@ -2,6 +2,23 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+
 #homepage-search {
   width: 300px;
+}
+
+#homepage-search-btn{
+    background-color: transparent;
+    color: white;
+    position: relative;
+    padding: 8px 30px;
+    border: none;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none !important;
+    &:focus {
+        background-color: transparent;
+    }
 }
