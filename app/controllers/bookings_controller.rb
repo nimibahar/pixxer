@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+
   def new
     @club = Club.find(params[:club_id])
     @event = Event.find(params[:event_id])

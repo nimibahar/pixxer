@@ -1,15 +1,19 @@
 
-<div class="container">
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12 col sm-6">
+    <p> A Premium Table of <%= @table.seats %>  With <%= @table.available_seats %> Seats Available </p>
+      <p>This table is Priced at €<%= @table.price %> which works out to €<%= @table.per_seat %> per seat</p>
+      <p>The Booking Status of this table is : <%= @table.payment_status %></p>
+      <p>The normal preferences for this category of table is : <%= @table.preferences %> </p>
+      <br>
+      <h5> <em>Bookings for this Table </em> </h5>
+      <% @table.bookings.each do |booking|  %>
+      <p> User: <%= booking.user_id %> booked <%= booking.seats %> seats and commented that</p>
+      <p>" <%= booking.description %> "</p>
 
-  <p> Total Seats <%= @table.seats %>   </p>
-  <p> Available <%= @table.available_seats %> </p>
-  <p>Table Price €<%= @table.price %> </p>
-  <p>Seat Price €<%= @table.per_seat %> </p>
-  <p>Booking Status <%= @table.payment_status %></p>
-  <p> Preferences <%= @table.preferences %> </p>
-  <p> Promotion <%= @table.promotion %> </p>
-  <p> <%= button_to "Host", table_path(@table) %> </p>
-  <p> <%= button_to "More Info", table_path(@table) %> </p>
 
+      <% end %>
+    </div>
+  </div>
 </div>
-

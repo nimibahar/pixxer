@@ -5,6 +5,7 @@
       <h3>Table Booking </h3>
       <h5> <%= @event.starts_at.strftime("%-d %b") %>  : <%= @event.description %>
         @ <%= @club.name %> - <%= @club.description %> </h5>
+        <h6> Table for <%= @table.seats %> , <%= @table.available_seats %> seats available </h6>
       </div>
     </div>
   </div>
@@ -12,12 +13,40 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-6  col-xs-offset-3">
-        <%= simple_form_for @booking do |f| %>
-        <%= f.input :seats %>
+        <%= simple_form_for @booking , :onclick => "return validate();" do |f| %>
+        <%= f.input :seats,  input_html: {class: "valtest", max: @table.available_seats}%>
         <%= f.input :description %>
-        <%= f.hidden_field :table_id, value: @table.id %>
-        <%= f.button :submit %>
+        <%= f.hidden_field :table_id,value: @table.id %>
+        <%= f.button :submit, class: "clicktest" %>
         <% end %>
       </div>
     </div>
   </div>
+
+<% content_for :after_js do %>
+
+  <script type="text/javascript">
+    $( "form" ).change(function() {
+      var seats = <%= @table.available_seats %>
+      if ($('.valtest').val() > seats  ) {
+        alert ("There are only " + seats + " seats available");
+      }
+    });
+
+  $( ".clicktest" ).click(function(e) {
+
+       if( $('.valtest').val() === "" ){
+        e.preventDefault();
+        return;
+       };
+
+       var cost = $('.valtest').val() * <%= @table.per_seat %>
+       var confirm = window.confirm("Total cost of your booking is €" + cost + " click ok to confirm");
+       if( confirm === false ){
+        e.preventDefault();
+       };
+     });
+
+  </script>
+
+<% end %>
