@@ -33,13 +33,19 @@
              <td>  <%= table.available_seats %> </td>
              <td>  €<%= table.price %> </td>
              <td>  €<%= table.per_seat %> </td>
-             <td>  <%= table.payment_status %></td>
-             <% if table.user_id %>
-             <td> <%= link_to "Host Info", table_path(table) %> </td>
+             <td class="tabsts">  <%= table.payment_status %></td>
+             <% if current_user %>
+                <% if table.user_id.present? %>
+                   <% if table.payment_status == "Full" %>
+                        <td> <%= link_to "Table Full", table_path(table) %> </td>
+                      <% else %>
+                        <td id="bgtable"> <%= link_to "Join this Table", new_booking_path(table, club_id: @club.id, event_id: @event.id, table_id: table.id) %></td>
+                   <% end %>
+                <% else %>
+                  <td id="bgtable"> <%= link_to "Host this Table", new_booking_path(table, club_id: @club.id, event_id: @event.id, table_id: table.id) %> </td>
+                <% end %>
              <% elsif current_user %>
-             <td> <%= link_to "Host this Table", new_booking_path(table, club_id: @club.id, event_id: @event.id, table_id: table.id) %> </td>
-             <% else %>
-             <td> <%= link_to "Sign In to Host", new_user_session_path %> </td>
+                <td id="bgtable"> <%= link_to "Sign In to Join/Host", new_user_session_path %> </td>
              <% end %>
              <td> <%= link_to "More Info", table_path(table) %> </td>
            </tr>
