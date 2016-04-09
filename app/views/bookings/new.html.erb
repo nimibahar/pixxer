@@ -14,7 +14,8 @@
     <div class="row">
       <div class="col-xs-6  col-xs-offset-3">
         <%= simple_form_for @booking , :onclick => "return validate();" do |f| %>
-        <%= f.input :seats,  input_html: {class: "valtest", max: @table.available_seats}%>
+        <%= f.label :seats %>
+        <%= f.select :seats, (1..@table.available_seats), class: "valtest" %>
         <%= f.input :description %>
         <%= f.hidden_field :table_id,value: @table.id %>
         <%= f.button :submit, class: "clicktest" %>
@@ -35,12 +36,12 @@
 
   $( ".clicktest" ).click(function(e) {
 
-       if( $('.valtest').val() === "" ){
-        e.preventDefault();
-        return;
-       };
+       // if( $('.valtest').val() === "" ){
+       //  e.preventDefault();
+       //  return;
+       // };
 
-       var cost = $('.valtest').val() * <%= @table.per_seat %>
+       var cost = $('#booking_seats').val() * <%= @table.per_seat %>
        var confirm = window.confirm("Total cost of your booking is €" + cost + " click ok to confirm");
        if( confirm === false ){
         e.preventDefault();
