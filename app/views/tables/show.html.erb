@@ -1,19 +1,42 @@
 
+
+
 <div class="container text-center">
   <div class="row">
-    <div class="col-xs-12 col sm-6">
-    <p> A Premium Table of <%= @table.seats %>  With <%= @table.available_seats %> Seats Available </p>
-      <p>This table is Priced at €<%= @table.price %> which works out to €<%= @table.per_seat %> per seat</p>
-      <p>The Booking Status of this table is : <%= @table.payment_status %></p>
-      <p>The normal preferences for this category of table is : <%= @table.preferences %> </p>
-      <br>
-      <h5> <em>Bookings for this Table </em> </h5>
-      <% @table.bookings.each do |booking|  %>
-      <p> User: <%= booking.user_id %> booked <%= booking.seats %> seats and commented that</p>
-      <p>" <%= booking.description %> "</p>
 
+    <div class="col-sm-6">
+      <div>
+        <p> A Premium Table of <%= @table.seats %>  With <%= @table.available_seats %> Seats Available </p>
+        <p>This table costs €<%= @table.price %> - or €<%= @table.per_seat %> per seat</p>
+        <p>Table preferences : <%= @table.preferences %> </p>
+        <p>This table is hosted by: <%= @table.user.first_name %> <%= @table.user.last_name %></p>
+        <%= image_tag(@table.user.picture) %>
 
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
+
+    <div class="col-sm-6">
+      <h5> <em>Bookings for this Table </em> </h5>
+      <div class="text-left small">
+
+        <% @table.bookings.each do |booking|  %>
+
+        <div class="row">
+          <div class="col-sm-2">
+            <%= image_tag(booking.user.picture, size: "50x50") %>
+          </div>
+
+          <div class="col-sm-10">
+           <span class="mark"> <%= booking.user.first_name %> <%= booking.user.last_name %> </span>
+            Booked <%= booking.seats %> seats <br>
+            Comments: <%= booking.description %>
+          </div>
+        </div>
+
+        <% end %>
+
+      </div>
+    </div>
+
+    </div>
+    </div>

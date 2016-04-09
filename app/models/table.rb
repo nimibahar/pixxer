@@ -8,9 +8,11 @@ class Table < ActiveRecord::Base
     if self.available_seats == 0
       self.payment_status = "Full"
     else
-    self.payment_status = "Hosted"
+      self.payment_status = "Hosted"
     end
-    self.user_id = user_id
+    if self.user_id == nil
+      self.user_id = user_id
+    end
     self.save
   end
 end

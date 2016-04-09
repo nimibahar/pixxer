@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
+Booking.destroy_all
 Photo.destroy_all
 Table.destroy_all
 Event.destroy_all
@@ -61,8 +62,9 @@ end
 5.times do |d|
   Table.create(seats: 15, available_seats: 15, price: 900, per_seat: 60, payment_status: "empty", preferences: "Beer", event_id: e1.id)
 end
-
-
+t1 = User.find(1)
+t1.picture = open("http://res.cloudinary.com/pbarua/image/upload/v1460210081/cacl3rrb0golzojxdks4.jpg")
+t1.save
 
 
 
