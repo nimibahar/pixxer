@@ -1,5 +1,4 @@
-
-
+<%= render '/shared/event' %>
 
 <div class="container text-center">
   <div class="row">
@@ -16,14 +15,14 @@
     </div>
 
     <div class="col-sm-6">
-      <h5> <em>Bookings for this Table </em> </h5>
+      <h5> <em><%= @table.seats - @table.available_seats %> Bookings for this Table </em> </h5>
       <div class="text-left small">
 
-        <% @table.bookings.each do |booking|  %>
+        <% @table.bookings.order(:id).each do |booking|  %>
 
         <div class="row">
           <div class="col-sm-2">
-            <%= image_tag(booking.user.picture, size: "50x50") %>
+            <%= image_tag(booking.user.picture,  class: "avatar-large") %>
           </div>
 
           <div class="col-sm-10">
@@ -33,6 +32,10 @@
           </div>
         </div>
 
+        <% end %>
+
+        <% if current_user && @table.available_seats > 0 %>
+          <%= link_to "Join this Table", new_booking_path(@table, club_id: params[:club_id], event_id: params[:event_id], table_id: @table.id), class: "btn btn-default text-center" %>
         <% end %>
 
       </div>

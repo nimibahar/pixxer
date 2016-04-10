@@ -17,7 +17,7 @@
           <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %> </div>
         </div>
         <% end %>
-        <%= link_to "Events", events_path(club_id: @club.id), class:"btn btn-primary" %>
+        <%= link_to "Events", events_path(club_id: @club.id), class:"btn btn-default" %>
       </div>
 
     </div>
