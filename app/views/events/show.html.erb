@@ -15,7 +15,7 @@
     <% @event.photos.each do |photo| %>
     <div class="col-xs-12 col-sm-6">
       <div class="card card-image hoverable">
-        <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %>
+        <div> <%= cl_image_tag photo.photo, height: 300, width: 500, crop: :fill %>
         </div>
       </div>
 
@@ -27,8 +27,9 @@
 
 
     <div>
-      <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"btn btn-default" %>
+      <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"adele-btn" %>
     </div>
+
   </div>
 </div>
 </div>
