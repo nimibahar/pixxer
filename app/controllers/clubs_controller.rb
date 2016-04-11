@@ -6,7 +6,7 @@ class ClubsController < ApplicationController
     if current_owner
       @clubs = current_owner.clubs
     else
-      @clubs = Club.all
+      @clubs = Club.where(city: params[:city])
     end
   end
 

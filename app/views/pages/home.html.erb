@@ -8,25 +8,26 @@
                 <a href="#" class="btn btn-primary waves-effect waves-light">Learn more</a> -->
           <!--   </div>
         </div>
-      </section> -->
-      <!--/. Section: Intro -->
+    </section> -->
+    <!--/. Section: Intro -->
 
 
-      <div class="mask rgba-black-light">
-        <div class="banner">
-          <div class="banner-content text-center">
-            <h1>piXXer</h1>
-            <p>Own the night!</p>
-            <div class="wrapper-form">
-              <form class="form-inline" role="form" action="clubs">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="homepage-search" name="location" placeholder="Find Your Party">
-                  <button type="submit" id="homepage-search-btn" ><i class="fa fa-search"></i></button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+<div class="mask rgba-black-light">
+  <div class="banner">
+    <div class="banner-content text-center">
+      <h1>piXXer</h1>
+      <p>Own the night!</p>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Party Cities
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-background">
+
+          <li><%= link_to "Las Vegas", clubs_path(city: 'Las Vegas') %></li>
+          <li><%= link_to "New York", clubs_path(city: 'New York') %></li>
+          <li><%= link_to "London", clubs_path(city: 'London') %></li>
+
+        </ul>
+
       </div>
 
       <div class="divider-new">Upcoming events</div>

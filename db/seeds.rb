@@ -11,28 +11,31 @@ Photo.destroy_all
 Table.destroy_all
 Event.destroy_all
 Club.destroy_all
-
+User.destroy_all
 Owner.destroy_all
 
 p Rails.env
 o = Owner.create(email: "abc@gmail.com", password: "az", password_confirmation: "az")
-
+u1 = User.create(email: "user1@gmail.com", password: "az", password_confirmation: "az", first_name: "Samuel", last_name: "Jackson", picture: "user1.jpg")
+u2 = User.create(email: "user2@gmail.com", password: "az", password_confirmation: "az", first_name: "Julia", last_name: "Roberts", picture: "user2.jpg")
+u3 = User.create(email: "user3@gmail.com", password: "az", password_confirmation: "az", first_name: "Kim", last_name: "Kardhasian", picture: "user3.jpg")
 # Club 1
 c = Club.create(name: "Xs", city: "Las Vegas", address: "Las Vegas Strip",
-      description: "Best Nightclub in the World", owner_id: o.id, photo: "xs.jpg")
+      description: "THE Nightclub in Vegas", owner_id: o.id)
 Photo.create(club_id: c.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459933276/adnavtnnesgllslshg50.jpg"))
+sleep(1)
 Photo.create(club_id: c.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459933309/vfnlu3bvgxmdniwmj9j2.jpg"))
+sleep(1)
 Photo.create(club_id: c.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459942119/scxgnuljvoi2zd3clv1h.jpg"))
-
+sleep(1)
 e = Event.create(club_id: c.id, starts_at: "2016-5-27",
     description: "Yellow Claw from Amsterdam", event_type: "DJ playing wide genre",
     dress_code: "Casual")
 
 Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943569/xd44lxpuwmjuf6insbda.jpg"))
-
-
-Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943569/xd44lxpuwmjuf6insbda.jpg"))
+sleep(1)
 # Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943542/xpgw8i8oarwvjx5kffpi.jpg"))
+# sleep(1)
 # Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943520/pk6fjaalwyivzy3nlcg6.png"))
 
 5.times do |d|
@@ -48,7 +51,9 @@ e1 = Event.create(club_id: c.id, starts_at: "2016-5-9",
     description: "David Guetta", event_type: "French DJ and Remixer",
     dress_code: "Casual")
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944537/po8vl9a6roljivi70gmy.jpg"))
+sleep(1)
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944514/zco5dxutbaxliisjj8xp.jpg"))
+sleep(1)
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944496/ptia77casyk2ryg39n3z.jpg"))
 
 # Event.create(club_id: ex_club.id, starts_at: DateTime.new(2016, 4, 15) )
@@ -62,9 +67,7 @@ end
 5.times do |d|
   Table.create(seats: 15, available_seats: 15, price: 900, per_seat: 60, payment_status: "empty", preferences: "Beer", event_id: e1.id)
 end
-t1 = User.find(1)
-t1.picture = open("http://res.cloudinary.com/pbarua/image/upload/v1460210081/cacl3rrb0golzojxdks4.jpg")
-t1.save
+
 
 
 
