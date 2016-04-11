@@ -62,9 +62,7 @@ end
 5.times do |d|
   Table.create(seats: 15, available_seats: 15, price: 900, per_seat: 60, payment_status: "empty", preferences: "Beer", event_id: e1.id)
 end
-t1 = User.find(1)
-t1.picture = open("http://res.cloudinary.com/pbarua/image/upload/v1460210081/cacl3rrb0golzojxdks4.jpg")
-t1.save
+
 
 
 
