@@ -1,5 +1,26 @@
 .adele-btn {
-  height: 48px;
+  border-radius: 10em;
+  height: 24px;
+  width: 85px;
   font-size: 20px;
   border: 1px solid white;
+  background-color: black;
+  color: white;
+  margin-top: 32px;
+  margin-right: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-left: auto;
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  letter-spacing: 2px;
+  padding-right: 20px;
+
+  &:hover,
+  &:focus {
+      background-color: white;
+      color: black;
+      border: 2px solid black;
+    }
 }
