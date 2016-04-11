@@ -18,13 +18,19 @@
         <div> <%= cl_image_tag photo.photo, height: 300, width: 500, crop: :fill %>
         </div>
       </div>
+
+
     </div>
     <% end %>
-  </div>
-  <div class="row">
+
+
+
+
     <div>
-        <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"adele-btn" %>
-      </div>
+      <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"adele-btn" %>
+    </div>
+
   </div>
+</div>
 </div>
 

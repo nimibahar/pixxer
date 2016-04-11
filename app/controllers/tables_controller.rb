@@ -25,6 +25,8 @@ class TablesController < ApplicationController
   end
 
   def show
+    # @club = Club.find(params[:club_id])
+    # @event = Event.find(params[:event_id])
   end
 
   def index

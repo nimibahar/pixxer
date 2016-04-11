@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     table = Table.find(params[:booking][:table_id])
     booking = Booking.new(booking_params)
     table.new_availability(booking.seats, current_user.id)
-    booking.new_from_table(table)
+    booking.new_from_table(table, current_user.id)
     booking.user_id = current_user.id
     if booking.save
       redirect_to table_path(table)

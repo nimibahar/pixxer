@@ -30,7 +30,9 @@
           <div class="card small card-product hoverable">
 
             <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
-              <div class="price"><%="Tables starts @" + event.cheapest_table + " " + "$" %></div>
+
+              <div class="price"><%= event.cheapest_table + "$" %></div>
+
             </div>
             <div class="row">
               <div class="col-xs-6">
@@ -47,7 +49,7 @@
                 </h5>
               </div>
               <div class="col-xs-6">
-                <%= link_to "click on this bitch", event_path(event), class: "btn btn-primary", style: "float:right" %>
+                <%= link_to "Details", event_path(event), class: "btn btn-default", style: "float:right" %>
               </div>
             </div>
           </div>

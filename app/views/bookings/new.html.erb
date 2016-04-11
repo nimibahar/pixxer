@@ -1,22 +1,16 @@
-<div class="container text-center">
-  <div class="row">
-
-    <div class="col-xs-12 ">
-      <h3>Table Booking </h3>
-      <h5> <%= @event.starts_at.strftime("%-d %b") %>  : <%= @event.description %>
-        @ <%= @club.name %> - <%= @club.description %> </h5>
-        <h6> Table for <%= @table.seats %> , <%= @table.available_seats %> seats available </h6>
-      </div>
-    </div>
-  </div>
-
+<h3 class="text-center">Table Booking </h3>
+<%= render '/shared/event' %>
+<p class="text-center"> Table of <%= @table.seats %> seats - with <%= @table.available_seats %> seats available </p>
   <div class="container">
     <div class="row">
       <div class="col-xs-6  col-xs-offset-3">
         <%= simple_form_for @booking , :onclick => "return validate();" do |f| %>
-        <%= f.input :seats,  input_html: {class: "valtest", max: @table.available_seats}%>
+        <%= f.label :seats %>
+        <%= f.select :seats, (1..@table.available_seats), class: "valtest" %>
         <%= f.input :description %>
         <%= f.hidden_field :table_id,value: @table.id %>
+        <%= f.hidden_field :club_id,value: @club.id %>
+        <%= f.hidden_field :event_id,value: @event.id %>
         <%= f.button :submit, class: "clicktest" %>
         <% end %>
       </div>
@@ -25,22 +19,22 @@
 
 <% content_for :after_js do %>
 
-  <script type="text/javascript">
-    $( "form" ).change(function() {
-      var seats = <%= @table.available_seats %>
-      if ($('.valtest').val() > seats  ) {
-        alert ("There are only " + seats + " seats available");
-      }
-    });
+   <script type="text/javascript">
+  //   $( "form" ).change(function() {
+  //     var seats = <%= @table.available_seats %>
+  //     if ($('.valtest').val() > seats  ) {
+  //       alert ("There are only " + seats + " seats available");
+  //     }
+  //   });
 
   $( ".clicktest" ).click(function(e) {
 
-       if( $('.valtest').val() === "" ){
-        e.preventDefault();
-        return;
-       };
+       // if( $('.valtest').val() === "" ){
+       //  e.preventDefault();
+       //  return;
+       // };
 
-       var cost = $('.valtest').val() * <%= @table.per_seat %>
+       var cost = $('#booking_seats').val() * <%= @table.per_seat %>
        var confirm = window.confirm("Total cost of your booking is €" + cost + " click ok to confirm");
        if( confirm === false ){
         e.preventDefault();
