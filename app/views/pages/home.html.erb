@@ -81,7 +81,7 @@
   <div class="row">
     <% @tables.each_with_index do |table, index| %>
       <div class="col-xs-12 col-md-4">
-        <%= render "table_card", table: table, index: index %>
+        <%= render "table_card", table: table, index: index+1 %>
       </div>
     <% end %>
   </div>
