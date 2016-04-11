@@ -18,12 +18,20 @@
         <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %>
         </div>
       </div>
-    </div>
-    <% end %>
-  </div>
-  <div class="row">
-    <div>
-        <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"btn reg-btn" %>
+
+      <h2><%= @event.starts_at.strftime("%-d %b") %>  : <%= @event.description %> </h2>
+        <div class="row">
+
+          <% @event.photos.each do |photo| %>
+          <div class="col-xs-12 col-sm-4">
+            <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %> </div>
+          </div>
+          <% end %>
+
+        </div>
+        <div>
+            <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"btn btn-default" %>
+        </div>
       </div>
   </div>
 </div>

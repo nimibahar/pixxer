@@ -9,7 +9,6 @@ class Booking < ActiveRecord::Base
   def new_from_table(table, user)
     self.price = self.seats * table.per_seat
     self.table_id = table.id
-    byebug
     if table.user_id == user
       self.status = 'Host'
     else
