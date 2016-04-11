@@ -6,6 +6,9 @@ class ClubsController < ApplicationController
     if current_owner
       @clubs = current_owner.clubs
     else
+      if params[:city] == ""
+        params[:city] == "Las Vegas"
+      end
       @clubs = Club.where(city: params[:city])
     end
   end
