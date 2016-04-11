@@ -1,6 +1,6 @@
 <h3 class="text-center">Table Booking </h3>
 <%= render '/shared/event' %>
-
+<p class="text-center"> Table of <%= @table.seats %> seats - with <%= @table.available_seats %> seats available </p>
   <div class="container">
     <div class="row">
       <div class="col-xs-6  col-xs-offset-3">
@@ -19,13 +19,13 @@
 
 <% content_for :after_js do %>
 
-  <script type="text/javascript">
-    $( "form" ).change(function() {
-      var seats = <%= @table.available_seats %>
-      if ($('.valtest').val() > seats  ) {
-        alert ("There are only " + seats + " seats available");
-      }
-    });
+   <script type="text/javascript">
+  //   $( "form" ).change(function() {
+  //     var seats = <%= @table.available_seats %>
+  //     if ($('.valtest').val() > seats  ) {
+  //       alert ("There are only " + seats + " seats available");
+  //     }
+  //   });
 
   $( ".clicktest" ).click(function(e) {
 
