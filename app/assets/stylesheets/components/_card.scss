@@ -64,15 +64,16 @@
         border-radius: 2px;
     }
     .card-up img {
-        min-width: 400px;
+        // min-width: 400px;
+        width: 100%;
     }
     .avatar {
         border-radius: 50%;
         display: block;
-        height: 120px;
+        height: 100px;
         margin: -65px auto 0;
         overflow: hidden;
-        width: 120px;
+        width: 100px;
     }
     .avatar img {
         border: 5px solid #fff;

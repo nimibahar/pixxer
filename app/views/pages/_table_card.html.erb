@@ -1,0 +1,73 @@
+
+<!--Rotating card-->
+<div class="card-wrapper">
+  <div id="card-<%=index%>" class="card-rotating effect__click">
+    <!--Front Side-->
+    <div class="face card-rotating__front z-depth-1">
+      <div class="card-up">
+        <%= image_tag table.event.photos.first.try(:photo) %>
+      </div>
+      <div class="avatar">
+        <%= image_tag table.user.picture %> class="img-circle img-responsive">
+      </div>
+      <h4>Available seats: <%= table.available_seats %> </h4>
+      <h5><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %></h5>
+
+
+
+      <!--Triggering button-->
+      <a class="rotate-btn" data-card="card-<%=index%>"><i class="fa fa-repeat"> Click here to rotate</i></a>
+    </div>
+
+    <!--/.Front Side-->
+
+    <!--Back Side-->
+    <div class="face card-rotating__back z-depth-1">
+      <h4><%= table.seats - table.available_seats %> Bookings</h4>
+        <div class="text-left small">
+
+          <% table.bookings.order(:id).each do |booking|  %>
+
+            <div class="row">
+              <div class="col-sm-2" style="padding-left: 35px;">
+                <%= image_tag(booking.user.picture,  class: "avatar-large") %>
+              </div>
+
+              <div class="col-sm-10">
+                <span class="mark">
+                  <%= booking.user.first_name %> <%=booking.user.last_name %>
+                </span>
+                Booked <%= booking.seats %> seats <br>
+                Comments: <%= booking.description %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      <p class="card-content text-center">Subheading</p>
+        <!-- <br> Lorem ipsum</p>
+        <hr> Lorem ipsum
+        <br> Lorem ipsum
+        <br> Lorem ipsum
+        <br> Lorem ipsum
+        <br> Lorem ipsum
+        <br> Lorem ipsum
+        <br> -->
+
+    <!--Triggering button-->
+      <a class="rotate-btn" data-card="card-<%=index%>">
+        <i class="fa fa-undo"> Click here to rotate back</i>
+      </a>
+      <div class="sm-container">
+        <ul class="list-inline card-sm">
+          <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
+          <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <!--/.Back Side-->
+  <!--/.Rotating card-->
+  </div>
+</div>
