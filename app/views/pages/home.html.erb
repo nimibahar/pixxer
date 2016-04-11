@@ -15,45 +15,78 @@
 <div class="mask rgba-black-light">
   <div class="banner">
     <div class="banner-content text-center">
-      <h1>PIXXER</h1>
+      <h1>piXXer</h1>
       <p>Own the night!</p>
       <div class="wrapper-form">
         <form class="form-inline" role="form" action="clubs">
           <div class="form-group">
-
-
             <input type="text" class="form-control" id="homepage-search" name="location" placeholder="Find Your Party">
-
-
+            <button type="submit" id="homepage-search-btn" ><i class="fa fa-search"></i></button>
           </div>
-
-          <button type="submit" class="btn btn-default" ><i class="fa fa-search"></i></button>
-
         </form>
       </div>
     </div>
   </div>
 </div>
 
-<div class="divider-new">Upcoming events</div>
-
+<div class="divider-new", style="color=white">Upcoming events</div>
 <div class="container">
   <div class="row">
-   <% @events.each do |event| %>
-   <div class="col-xs-12 col-md-3">
-    <!-- image card -->
+    <% @events.each do |event| %>
+      <%  @club_id = event.club_id %>
+      <% @club = Club.find(@club_id) %>
+      <div class="col-xs-12 col-md-4">
+        <%= link_to event_path(event) do %>
 
-    <%= link_to event_path(event) do %>
+          <div class="card small card-product hoverable">
 
-    <div class="card small card-product hoverable" >
-      <div class="card-category"><%= event.starts_at %></div>
-      <div class="card-description"> <%= event.club_id %> </div>
-    </div>
+            <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
+              <div class="price"><%="Tables starts @" + event.cheapest_table + " " + "$"%></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <h4>
+                  <span class="Roboto-Bold">
+                    <div class="card-category"><%= event.starts_at.strftime("%-d %b") %> | <%= @club.name %></div>
+                  </span>
+                </h4>
+                <h5>
+                  <span class="Roboto-Thin">
+                    <div class="card-description"><%= @club.city %>
+                    </div>
+                  </span>
+                </h5>
+              </div>
+              <div class="col-xs-6">
+                <%= link_to "Host", event_path(event), class: "adele-btn" %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <% end %>
 </div>
-</div>
+<!-- <div class="container">
+  <div class="row"> -->
+   <%# @events.each do |event| %>
+   <!-- <div class="col-xs-12 col-md-3"> -->
+    <!-- image card -->
+
+    <%#= link_to event_path(event) do %>
+
+    <!-- <div class="card small card-product hoverable">
+      <div class="card-category"><%#= event.starts_at %></div>
+      <div class="card-description"> <%#= event.club_id %> </div>
+    </div> -->
+    <%# end %>
+  <!-- </div> -->
+  <%# end %>
+<!-- </div>
+</div> -->
+
+
 
 <!-- <nav>
   <ul class="pagination">
