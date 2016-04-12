@@ -1,27 +1,87 @@
-.adele-btn {
-  border-radius: 10em;
-  font-size: 20px;
-  border: 1px solid white;
-  background-color: black;
-  color: white;
-  margin-top: 32px;
-  margin-right: 5px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin-left: auto;
-  display: flex;
-  text-transform: uppercase;
-  align-items: center;
-  letter-spacing: 2px;
-  padding-right: 20px;
-  float:right;
-  display: inline-block;
-  padding: 5px;
 
-  &:hover,
-  &:focus {
-      background-color: white;
-      color: black;
-      border: 2px solid black;
-    }
+.brand-button {
+  float: right;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: 15px;
+  padding: 0 13px;
+  @extend .z-depth-1;
+  // border-radius: 1em;
+  line-height: 40px;
+  // background-color: #133959 ;
+  color: #133959 ;
+  font-size: 20px;
+  border: 0.6px solid #133959 ;
+  // background: linear-gradient(45deg, white 50%, white 50%);
+  // background-size: 220% 100%;
+  background-position:right bottom;
+
+}
+
+
+.brand-button:hover {
+   background: linear-gradient(45deg, black 50%, white 50%);
+   background-size: 260% 100%;
+   background-position:left bottom;
+   transition: all 0.2s ease;
+   color: white;
+   border: 0.6px solid black;
+
+
+}
+
+.join-button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 40px;
+  width: 240px;
+  @extend .z-depth-1;
+  // border-radius: 1em;
+  line-height: 40px;
+  // background-color: #133959 ;
+  color: #133959 ;
+  text-decoration: none;
+  font-size: 20px;
+  border: 0.6px solid #133959 ;
+  background: linear-gradient(45deg, white 50%, white 50%);
+  background-size: 220% 100%;
+  background-position:right bottom;
+
+}
+
+
+.join-button:hover {
+  background: linear-gradient(45deg, black 50%, white 50%);
+  background-size: 260% 100%;
+  background-position:left bottom;
+  transition: all 0.2s ease;
+  color: white;
+  border: 0.6px solid black;
+}
+
+.event-list {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+}
+
+.btn-facebook {
+  display: block;
+  float: left;
+  padding: 10px 15px;
+  border:none;
+  background-color: #3b5998;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+}
+
+.btn-facebook:hover {
+    color: #efefef;
+    border: .6 solid #3b5998;
+    background-color: transparent;
+    color: #3b5998;
 }

@@ -14,8 +14,9 @@
     </div>
     <% @event.photos.each do |photo| %>
     <div class="col-xs-12 col-sm-6">
+      <!-- <div class="card card-image hoverable"> -->
       <div class="card card-image hoverable">
-        <div> <%= cl_image_tag photo.photo, height: 300, width: 500, crop: :fill %>
+        <div> <%= cl_image_tag photo.photo, crop: :fill %>
         </div>
       </div>
 
@@ -27,10 +28,50 @@
 
 
     <div>
-      <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"adele-btn" %>
+      <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"brand-button" %>
     </div>
 
   </div>
 </div>
 </div>
+
+
+<div class="divider-new">Experiment</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+    <!-- Information about the event -->
+    </div>
+        <div class="col-xs-12 col-sm-6">
+    <%= render "event_card" %>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-center">
+          <%= link_to "Reserve Tables", tables_path(club_id: @club.id, event_id: @event.id), class:"brand-button" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-new">list of available tables</div>
+
+
+
+<!-- <div class="container">
+  <div class="row"> -->
+    <%# @event.photos.each do |photo| %>
+      <!-- <div class="col-xs-12 col-md-4"> -->
+        <%#= render "event_card", event: event %>
+      <!-- </div> -->
+    <%# end %>
+  <!-- </div>
+</div> -->
+
+
 

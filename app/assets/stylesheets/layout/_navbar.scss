@@ -48,3 +48,22 @@
     margin: 0 13px;
   }
 }
+
+.navbar-menu{
+  background: transparent;
+  float:right;
+  li{
+    display:flex;
+    justify-content: center;
+    color: white;
+
+    > .avatar{
+      height: 50px;
+      width: 50px;
+    }
+  }
+  li:hover{
+    background-color: black;
+    color: white;
+  }
+}
