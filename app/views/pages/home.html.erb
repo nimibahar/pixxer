@@ -15,11 +15,10 @@
 <div class="mask rgba-black-light">
   <div class="banner">
     <div class="banner-content text-center">
-      <h1>piXXer</h1>
       <p>Own the night!</p>
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Party Cities
-        <span class="caret"></span></button>
+        <span class="fa fa-search"></span></button>
         <ul class="dropdown-menu dropdown-menu-background">
 
           <li><%= link_to "Las Vegas", clubs_path(city: 'Las Vegas') %></li>
@@ -64,7 +63,7 @@
             </h7>
           </div>
           <div class="col-xs-6">
-            <%= link_to "Host", event_path(event), class: "text-center adele-btn waves-effect" %>
+            <%= link_to "Host", event_path(event), class: "brand-button" %>
           </div>
         </div>
       </div>

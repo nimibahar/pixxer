@@ -1,0 +1,29 @@
+
+  <!--Card Reveal-->
+  <div class="card hoverable">
+    <div class="card-image">
+      <div class="view overlay hm-white-slight z-depth-1">
+        <%= image_tag @event.photos.first.try(:photo) %>
+        <div class="mask waves-effect activator"></div>
+      </div>
+    </div>
+    <div class="card-content">
+      <!-- <span class="card-title activator grey-text text-darken-4">Click me if you want to share! --><i class="fa fa-share-alt fa-2x reveal-button"> </i><!-- </span>
+      <p><a>This is a link</a></p> -->
+    </div>
+    <div class="card-reveal social-reveal">
+      <span class="card-title grey-text text-darken-4">Share with your friends<i class="material-icons right">close</i></span>
+      <hr>
+      <div class="text-center">
+        <div class="fb-share-button" data-href="http://www.pixxer.com/events/" data-layout="icon"></div>
+        <!-- <a class="btn-fab ripple-wrapper fb-md waves-effect waves-light"><i class="fa fa-facebook"> </i></a> -->
+        <!-- <a class="btn-floating btn-large tw-bg waves-effect waves-light"><i class="fa fa-twitter"> </i></a>
+        <a class="btn-floating btn-large gplus-bg waves-effect waves-light"><i class="fa fa-google-plus"> </i></a>
+        <a class="btn-floating btn-large li-bg waves-effect waves-light"><i class="fa fa-linkedin"> </i></a>
+        <a class="btn-floating btn-large ins-bg waves-effect waves-light"><i class="fa fa-instagram"> </i></a>
+        <a class="btn-floating btn-large pin-bg waves-effect waves-light"><i class="fa fa-pinterest"> </i></a> -->
+      </div>
+    </div>
+  </div>
+  <!--/.Card Reveal-->
+
