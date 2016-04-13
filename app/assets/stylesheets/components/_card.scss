@@ -1,3 +1,13 @@
+.card-category {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: #9A9797;
+}
+
+.card-description {
+  color: #9A9797;
+}
+
 .card-event-new {
   min-height: 100vh;
   display: flex;
@@ -85,6 +95,7 @@
 .card-wrapper {
     margin: 0, 0 ;
     height: 500px;
+    padding-top: 25px;
     perspective: 800px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;

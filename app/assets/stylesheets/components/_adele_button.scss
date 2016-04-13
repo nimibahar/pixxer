@@ -9,7 +9,7 @@
   // border-radius: 1em;
   line-height: 40px;
   // background-color: #133959 ;
-  color: #133959 ;
+  color: #133959;
   font-size: 20px;
   border: 0.6px solid #133959 ;
   // background: linear-gradient(45deg, white 50%, white 50%);
@@ -24,7 +24,7 @@
    background-size: 260% 100%;
    background-position:left bottom;
    transition: all 0.2s ease;
-   color: white;
+   color: white !important;
    border: 0.6px solid black;
 
 
@@ -54,7 +54,6 @@
   background: linear-gradient(45deg, white 50%, white 50%);
   background-size: 220% 100%;
   background-position:right bottom;
-
 }
 
 
