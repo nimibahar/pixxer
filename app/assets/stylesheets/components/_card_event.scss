@@ -1,0 +1,81 @@
+.card-event-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-event {
+  width: 100%;
+  max-width: 470px;
+}
+
+.card-event-thumbnail {
+  height: 300px;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+}
+
+.card-event-details {
+  bottom: 0;
+  position: absolute;
+  margin: 20px;
+  display: flex;
+  left: 0;
+  right: 0;
+  align-items: center;
+}
+
+.card-event-date {
+  display: inline-block;
+  text-align: center;
+  min-width: 60px;
+
+  &-digit {
+    background: white;
+    padding: 8px 0;
+    font-size: 22px;
+    color: #676767;
+    font-weight: 100;
+  }
+
+  &-month {
+    background: #AD0000;
+    color: rgba(255, 255, 255, 0.61);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 7px 0;
+    font-size: 10px;
+    font-weight: 500;
+  }
+}
+
+.card-event-details-gen {
+  margin-left: 20px;
+}
+
+.card-event-artist {
+  font-size: 24px;
+  color: white;
+}
+
+.card-event-club {
+  color: white;
+  opacity: .5;
+}
+
+.card-event-cta {
+  padding: 15px 0;
+  text-align: center;
+  background: #3A3AFF;
+  color: white;
+  letter-spacing: 4px;
+  font-weight: 400;
+  display: block;
+
+  &:hover {
+    color: white;
+    background: #3030D4;
+  }
+}

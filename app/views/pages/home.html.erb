@@ -34,46 +34,46 @@
 </div>
 
 
-<div class="divider-new">Upcoming events</div>
+<!-- <div class="divider-new">Upcoming events</div>
 <div class="container">
   <div class="row">
-    <% @events.each do |event| %>
-    <% @club_id = event.club_id %>
-    <% @club = Club.find(@club_id) %>
+    <%# @events.each do |event| %>
+    <%# @club_id = event.club_id %>
+    <%# @club = Club.find(@club_id) %>
     <div class="col-xs-12 col-md-4">
-      <%= link_to event_path(event) do %>
+      <%#= link_to event_path(event) do %>
       <div class="card small card-product hoverable">
-        <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
-          <div class="price"><%="Tables starts @" + event.cheapest_table + " " + "$"%></div>
+        <div class='card-thumbnail' style="background-image: url('<%#= image_url event.photos.first.try(:photo) %>');" >
+          <div class="price"><%#="Tables starts @" + event.cheapest_table + " " + "$"%></div>
         </div>
         <div class="row">
           <div class="col-xs-6">
             <h7>
               <span class="Roboto-Bold">
-                <div class="starttime"><%= event.starts_at.strftime("%-d %b") %>  <br></div>
-                <div class="clubname"><%= @club.name %> <br>
+                <div class="starttime"><%#= event.starts_at.strftime("%-d %b") %>  <br></div>
+                <div class="clubname"><%#= @club.name %> <br>
                 </div>
               </span>
             </h7>
             <h7>
               <span class="Roboto-Thin">
-                <div class="city"><%= @club.city %>
+                <div class="city"><%#= @club.city %>
                 </div>
               </span>
             </h7>
           </div>
           <div class="col-xs-6">
-            <%= link_to "Host", event_path(event), class: "brand-button" %>
+            <%#= link_to "Host", event_path(event), class: "brand-button" %>
           </div>
         </div>
       </div>
 
-      <% end %>
+      <#% end %>
     </div>
-    <% end %>
+    <#% end %>
   </div>
 </div>
-
+ -->
 
 <div class="divider-new">Available tables</div>
 
@@ -90,44 +90,3 @@
 
 
 
-
-
-<!-- <div class="container">
-  <div class="row"> -->
-   <%# @events.each do |event| %>
-   <!-- <div class="col-xs-12 col-md-3"> -->
-   <!-- image card -->
-
-   <%#= link_to event_path(event) do %>
-
-    <!-- <div class="card small card-product hoverable">
-      <div class="card-category"><%#= event.starts_at %></div>
-      <div class="card-description"> <%#= event.club_id %> </div>
-    </div> -->
-    <%# end %>
-    <!-- </div> -->
-    <%# end %>
-<!-- </div>
-</div> -->
-
-
-
-<!-- <nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav> -->
