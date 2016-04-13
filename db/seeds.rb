@@ -68,8 +68,18 @@ end
   Table.create(seats: 15, available_seats: 15, price: 900, per_seat: 60, payment_status: "empty", preferences: "Beer", event_id: e1.id)
 end
 
+c1 = Club.create(name: "Tao", city: "Las Vegas", address: "Las Vegas Strip",
+      description: "In the Venetian", owner_id: Owner.last)
+Photo.create(club_id: c1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1460540439/wrxaa61mpe0syuvons2a.jpg"))
+sleep(1)
+Photo.create(club_id: c1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1460540882/k2kj84ymrufqf0qstu9t.jpg"))
+sleep(1)
+Photo.create(club_id: c1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1460540990/qzaeoqc1a5vd0qflliuf.jpg"))
+sleep(1)
 
-
-
-
-
+c2 = Club.create(name: "Wet Republic", city: "Las Vegas", address: "Las Vegas Strip",
+      description: "In the MGM Grand", owner_id: Owner.last)
+Photo.create(club_id: c2.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1460541107/fz2v8cjmr9mt6etwve0g.jpg"))
+sleep(1)
+Photo.create(club_id: c2.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1460541080/uxz2rtmrso0ozjftz5le.jpg"))
+sleep(1)
