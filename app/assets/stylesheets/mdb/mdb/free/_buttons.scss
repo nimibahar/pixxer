@@ -9,13 +9,31 @@
 }
 
 .btn-border-primary {
+    padding-left: 5px;
+    padding-right: 5px;
     background-color: transparent;
-    border: 10px solid black;
+    // border: 2px solid $primary-color;
+    // color: $primary-color-dark;
+    border: 0.6px solid black;
     color: black;
+    @extend .z-depth-1;
+    @include transition(.2s ease-out);
     &:hover,
     &:focus {
-        background-color: black;
-        color: white;
+        background-color: transparent;
+        color: $primary-color;
+    }
+}
+
+.btn-border-info {
+   background-color: transparent;
+    border: 2px solid $info-color;
+    color: $info-color-dark;
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        color: $info-color;
+        @extend .z-depth-1-half;
     }
 }
 
@@ -223,4 +241,28 @@ margin-left: 7px;
 
 .btn-xs {
     @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small);
+}
+
+.btn-fab {
+    margin: 0;
+    padding: 15px;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    &,
+    &:hover {
+        //.variations(#{""}, background-color, transparent);
+    }
+    &,
+    .ripple-wrapper {
+        border-radius: 100%;
+    }
+    &.btn-mini {
+        width: 40px;
+        height: 40px;
+        padding: 13px;
+        font-size: 15px;
+    }
 }

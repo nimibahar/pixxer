@@ -15,11 +15,10 @@
 <div class="mask rgba-black-light">
   <div class="banner">
     <div class="banner-content text-center">
-      <h1>piXXer</h1>
       <p>Own the night!</p>
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Party Cities
-        <span class="caret"></span></button>
+        <span class="fa fa-search"></span></button>
         <ul class="dropdown-menu dropdown-menu-background">
 
           <li><%= link_to "Las Vegas", clubs_path(city: 'Las Vegas') %></li>
@@ -29,110 +28,66 @@
         </ul>
 
       </div>
-      </div>
-      </div>
-      </div>
 
-      <div class="divider-new">Upcoming events</div>
-      <div class="container">
+    </div>
+  </div>
+</div>
+
+
+<div class="divider-new">Upcoming events</div>
+<div class="container">
+  <div class="row">
+    <% @events.each do |event| %>
+    <% @club_id = event.club_id %>
+    <% @club = Club.find(@club_id) %>
+    <div class="col-xs-12 col-md-4">
+      <%= link_to event_path(event) do %>
+      <div class="card small card-product hoverable">
+        <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
+          <div class="price"><%="Tables starts @" + event.cheapest_table + " " + "$"%></div>
+        </div>
         <div class="row">
-          <% @events.each do |event| %>
-          <%  @club_id = event.club_id %>
-          <% @club = Club.find(@club_id) %>
-          <div class="col-xs-12 col-md-4">
-            <%= link_to event_path(event) do %>
-
-            <div class="card small card-product hoverable">
-
-              <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
-                <div class="price"><%="Tables starts @" + event.cheapest_table + " " + "$"%></div>
-              </div>
-              <div class="row">
-                <div class="col-xs-6">
-                  <h7>
-                    <span class="Roboto-Bold">
-                      <div class="starttime"><%= event.starts_at.strftime("%-d %b") %>  <br></div>
-                      <div class="clubname"><%= @club.name %> <br>
-                      </div>
-                    </span>
-                  </h7>
-                  <h7>
-                    <span class="Roboto-Thin">
-                      <div class="city"><%= @club.city %>
-                      </div>
-                    </span>
-                  </h7>
+          <div class="col-xs-6">
+            <h7>
+              <span class="Roboto-Bold">
+                <div class="starttime"><%= event.starts_at.strftime("%-d %b") %>  <br></div>
+                <div class="clubname"><%= @club.name %> <br>
                 </div>
-                <div class="col-xs-6">
-                  <%= link_to "Host", event_path(event), class: "text-center adele-btn waves-effect" %>
+              </span>
+            </h7>
+            <h7>
+              <span class="Roboto-Thin">
+                <div class="city"><%= @club.city %>
                 </div>
-              </div>
-            </div>
-
-            <% end %>
+              </span>
+            </h7>
           </div>
-          <% end %>
+          <div class="col-xs-6">
+            <%= link_to "Host", event_path(event), class: "brand-button" %>
+          </div>
         </div>
       </div>
 
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-<div class="divider-new">Experiments</div>
+
+<div class="divider-new">Available tables</div>
 
 
 <div class="container">
-  <div class="col-lg-5 col-md-6">
-
-    <!--Rotating card-->
-
-    <div class="card-wrapper">
-      <div id="card-1" class="card-rotating effect__click">
-
-        <!--Front Side-->
-        <div class="face card-rotating__front z-depth-1">
-          <div class="card-up">
-            <img src="http://mdbootstrap.com/images/reg/reg%20(5).jpg" class="img-responsive">
-            </div>
-        <div class="avatar"><img src="http://mdbootstrap.com/wp-content/uploads/2015/10/team-avatar-2.jpg" class="img-circle img-responsive">
-        </div>
-        <h4>Heading</h4>
-        <h5>Subheading</h5>
-
-        <!--Triggering button-->
-        <a class="rotate-btn" data-card="card-1"><i class="fa fa-repeat"> Click here to rotate</i></a>
-        </div>
-        <!--/.Front Side-->
-
-        <!--Back Side-->
-        <div class="face card-rotating__back z-depth-1">
-          <h4>Heading</h4>
-          <p class="card-content text-center">Subheading
-            <br> Lorem ipsum</p>
-            <hr> Lorem ipsum
-            <br> Lorem ipsum
-            <br> Lorem ipsum
-            <br> Lorem ipsum
-            <br> Lorem ipsum
-            <br> Lorem ipsum
-            <br>
-
-        <!--Triggering button-->
-          <a class="rotate-btn" data-card="card-1"><i class="fa fa-undo"> Click here to rotate back</i></a>
-          <div class="sm-container">
-            <ul class="list-inline card-sm">
-              <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
-              <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
-              </ul>
-          </div>
-        </div>
-        <!--/.Back Side-->
-
+  <div class="row">
+    <% @tables.each_with_index do |table, index| %>
+      <div class="col-xs-12 col-md-4">
+        <%= render "table_card", table: table, index: index+1 %>
       </div>
-    </div>
-    <!--/.Rotating card-->
+    <% end %>
   </div>
 </div>
+
 
 
 

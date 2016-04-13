@@ -30,7 +30,7 @@ class ClubsController < ApplicationController
   end
 
   def show
-
+    @events = Event.all
   end
 
   def edit

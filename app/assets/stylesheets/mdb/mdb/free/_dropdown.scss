@@ -25,12 +25,12 @@ Dropdowns
     text-transform: none;
 
     &:hover, &.active {
-      background-color: $dropdown-hover-bg-color;
+      background-color: $dropdown-li-hover;
     }
 
     & > a, & > span {
       font-size: 1.2rem;
-      color: $dropdown-color;
+      color: $dropdown-li;
       display: block;
       padding: 1rem 1rem;
     }
@@ -39,6 +39,7 @@ Dropdowns
     & > a > i {
       height: inherit;
       line-height: inherit;
+      text-transform:none;
     }
   }
 }
@@ -46,11 +47,11 @@ Dropdowns
 .dropdown-menu {
     border-radius: 0;
     @extend .z-depth-1;
-    
+
     li {
-        
+
     clear: both;
-    color: $off-black;
+    color: $dropdown-li;
     cursor: pointer;
     line-height: 1.5rem;
     width: 100%;
@@ -58,12 +59,12 @@ Dropdowns
     text-transform: none;
 
     &:hover, &.active {
-      background-color: $dropdown-hover-bg-color;
+      background-color: $dropdown-li-hover;
     }
 
     & > a, & > span {
       font-size: 1.2rem;
-      color: $dropdown-color;
+      color: $dropdown-li;
       display: block;
       padding: 1rem 1rem;
     }
@@ -72,7 +73,8 @@ Dropdowns
     & > a > i {
       height: inherit;
       line-height: inherit;
+      color:$dropdown-li-hover;
     }
   }
-  
+
 }
