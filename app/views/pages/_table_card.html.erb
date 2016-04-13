@@ -9,15 +9,19 @@
       <div class="avatar">
         <%= image_tag table.user.picture %> class="img-circle img-responsive">
       </div>
-      <h7>Available seats: <%= table.available_seats %> Price to join: $ <%= table.per_seat %> </h7>
-      <h5><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %></h5>
-
-
-
+        <br>
+      <h7>Available seats: <%= table.available_seats %>
+        <br>
+        <br>
+        Price to join: $ <%= table.per_seat %> </h7>
+      <br>
+      <br>
       <!--Triggering button-->
-      <a class="rotate-btn" data-card="card-<%=index%>"><i class="fa fa-repeat"> Click here to rotate</i></a>
-    </div>
+      <a class="rotate-btn" style="color: black;" data-card="card-<%=index%>"><!-- <i class="fa fa-repeat"> --> Meet the team<!-- </i> --></a>
 
+
+      <div class="join-button"><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %></div>
+    </div>
     <!--/.Front Side-->
 
     <!--Back Side-->
