@@ -20,7 +20,8 @@
       <a class="rotate-btn" style="color: black;" data-card="card-<%=index%>"><!-- <i class="fa fa-repeat"> --> Meet the team<!-- </i> --></a>
 
 
-      <div class="join-button"><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %></div>
+      <div class="join-button"><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %>
+      </div>
     </div>
     <!--/.Front Side-->
 

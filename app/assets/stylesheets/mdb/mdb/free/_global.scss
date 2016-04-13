@@ -31,7 +31,7 @@ span.badge-md {
 }
 
 a {
-    color: $link-color;
+    color: black;
     text-decoration: none;
     cursor: pointer;
     // Gets rid of tap active state
@@ -39,6 +39,7 @@ a {
     &:hover,
     &:focus {
         text-decoration: none;
+        color: white;
     }
 }
 

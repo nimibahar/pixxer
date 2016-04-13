@@ -28,6 +28,10 @@
     background-color: $card-bg-color;
     transition: box-shadow .25s;
     border-radius: 2px;
+    text-align: center;
+    display: block;
+    font-weight: 400;
+    font-size: 20px;
     @extend .z-depth-1;
     .card-title {
         color: $card-bg-color;
