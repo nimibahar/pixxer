@@ -4,3 +4,10 @@
 .valtest {
   font-size: 40
 }
+.valign {
+  vertical-align: center;
+
+  .btn {
+    margin: auto;
+  }
+}
