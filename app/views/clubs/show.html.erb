@@ -12,17 +12,16 @@
 <div class="container">
   <% @club.photos.each do |photo| %>
     <div class="row">
-      <div class="club-card-pics">
-        <div class="col-xs-12 col-sm-4">
-          <div> <%= cl_image_tag photo.photo, height: 300, width: 400, crop: :fill %> </div>
-        </div>
-  <% end %>
-        <%#= link_to "Events", events_path(club_id: @club.id), class:"btn btn-default" %>
+      <div class="col-xs-12 col-sm-4">
+        <%= cl_image_tag photo.photo, height: 300, crop: :fill, class: "fuckoff" %>
       </div>
+    <% end %>
+    </div>
+    <%#= link_to "Events", events_path(club_id: @club.id), class:"btn btn-default" %>
   </div>
 </div>
 
-<div class="divider-new">Upcoming events</div>
+<div class="divider-new text-center">Upcoming events</div>
 
 
 <div class="container">
@@ -36,7 +35,7 @@
         <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
           <div class="card-thumbnail-price"><%="Tables starts at $ " + event.cheapest_table + " " %> </div>
         </div>
-        <div class="continer">
+
           <div class="row">
             <div class="col-xs-4 col-xs-offset-4">
               <ul class="list-inline event-list">
@@ -46,15 +45,15 @@
               </ul>
             </div>
           </div>
-        </div>
 
-        <div class="container">
+
+
           <div class="row">
             <div class="col-xs-12-col-xs-offset-2 col-md-4">
               <%= link_to "Book table and invite ppl", event_path(event), class: "join-button" %>
             </div>
           </div>
-        </div>
+
       </div>
 
     <% end %>
@@ -62,4 +61,3 @@
   <% end %>
 </div>
 </div>
-

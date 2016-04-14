@@ -43,17 +43,36 @@
 //     }
 //   }
 // }
+//
 
-.card-club-pics {
+.team {
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  padding-top: 20px;
+
+}
+
+.teammember-details {
+  padding-left: 15px;
+
+}
+
+
+.fuckoff{
+  width:100%;
+}
+
+
+.club-pics-pic {
   display: flex;
   justify-content: space-between;
   height: 500px;
-  width: 500px;
+  width: 100%;
   background-size: cover;
   background-position: center center;
   border-color: solid 2px white;
-
-
 }
 
 .card-thumbnail {
@@ -104,9 +123,9 @@
 
 
 .card-wrapper {
-    margin: 0, 0 ;
+    margin-top: 0;
+    margin-bottom: 30px;
     height: 500px;
-    padding-top: 25px;
     perspective: 800px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;

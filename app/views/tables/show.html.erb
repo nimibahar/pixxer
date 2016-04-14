@@ -34,7 +34,7 @@
         <% end %>
 
         <!-- Share on FB > NEEDS STYLING -->
-        <a class='btn btn-facebook' href="https://www.facebook.com/sharer/sharer.php?u=<%= new_booking_url(event_id: @table.event_id, club_id: @table.event.club_id, table_id: @table.id ) %>"> Share the great news on <i class="fa fa-facebook-official"></i></a>
+        <a class='btn btn-facebook' href="https://www.facebook.com/sharer/sharer.php?u=<%= facebook_url(@table.event.club_id, @table.event_id, @table.id) %>"> Share the great news on <i class="fa fa-facebook-official"></i></a>
 
 
         <%# if current_user && @table.available_seats > 0 %>

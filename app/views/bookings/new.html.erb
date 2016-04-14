@@ -8,7 +8,7 @@
         <% host = @table.user_id %>
         <% @table.bookings.each do |booking| %>
           <% if !(booking.user_id == host) %>
-            <%= image_tag(booking.user.picture,  class: "avatar") %>
+            <%= image_tag(booking.user.picture,  class: "avatar-large") %>
           <% end %>
         <% end %>
       </div>
@@ -17,14 +17,11 @@
 </div>
 
 
-<%= @table.preferences %>
-
-
-
-
 <h3 class="text-center">Table Booking </h3>
 <%= render '/shared/event' %>
-<p class="text-center"> Table of <%= @table.seats %> seats - with <%= @table.available_seats %> seats available </p>
+<p class="text-center"> Table of <%= @table.seats %> seats - with <%= @table.available_seats %> seats available<br>
+  Drinking preferences: <%= @table.preferences %>
+</p>
   <div class="container">
     <div class="row">
       <div class="col-xs-6  col-xs-offset-3">
@@ -41,6 +38,57 @@
       </div>
     </div>
   </div>
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Confirm Table Booking</h4>
+      </div>
+      <div class="modal-body text-center">
+
+        <%= "The total cost works out to €" %>  <span id="result2"><%= @table.per_seat %></span>
+
+      </div>
+      <div class="modal-footer valign">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= f.button :submit %>
+
+      </div>
+              <% end %>
+    </div>
+  </div>
+</div>
+
+
+<%= content_for :after_js do %>
+  <script>
+    function myFunction() {
+      var seats = document.getElementById("booking_seats").value ;
+      var total_cost = seats * <%= @table.per_seat %>;
+      document.getElementById('result').innerHTML  = total_cost ;
+      document.getElementById('result2').innerHTML  = total_cost ;
+    };
+    $(document).ready(function(){
+     $('#booking_seats').change(function(){
+        myFunction()
+      });
+    });
+   </script>
+
+ <% end %>
+
+<!-- <div id="confirm" class="modal hide fade">
+  <div class="modal-body">
+    <%#= cost_text %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+  </div>
+ -->
+<%# content_for :after_js do %>
 
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -103,14 +151,15 @@
   //       alert ("There are only " + seats + " seats available");
   //     }
   //   });
-
   $( ".clicktest" ).click(function(e) {
-
        // if( $('.valtest').val() === "" ){
        //  e.preventDefault();
        //  return;
        // };
+<<<<<<< HEAD
+=======
 
+>>>>>>> 142b886c825b0de8e76e948bc21033c21e37cc3a
        var cost = $('#booking_seats').val() * <%#= @table.per_seat %>
        var cost_text = "Total cost of your booking is €" + cost + " please Confirm"
        //var confirm = window.confirm("Total cost of your booking is €" + cost + " click ok to confirm");
