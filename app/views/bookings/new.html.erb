@@ -35,17 +35,70 @@
         <%= f.hidden_field :table_id,value: @table.id %>
         <%= f.hidden_field :club_id,value: @club.id %>
         <%= f.hidden_field :event_id,value: @event.id %>
-        <%= f.button :submit, class: "clicktest" %>
-        <% end %>
+        <p>Total Cost is € <span id="result"><%= @table.per_seat %></span></p>
+        <button type="button" class= "test btn btn-default" data-toggle="modal"
+          data-target="#myModal">Book</button>
       </div>
     </div>
   </div>
 
-<% content_for :after_js do %>
 
-   <script type="text/javascript">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Confirm Table Booking</h4>
+      </div>
+      <div class="modal-body text-center">
+
+        <%= "The total cost works out to €" %>  <span id="result2"><%= @table.per_seat %></span>
+      </div>
+      <div class="modal-footer valign">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= f.button :submit %>
+
+      </div>
+              <% end %>
+    </div>
+  </div>
+</div>
+
+
+<%= content_for :after_js do %>
+  <script>
+
+    function myFunction() {
+      var seats = document.getElementById("booking_seats").value ;
+      var total_cost = seats * <%= @table.per_seat %>;
+      document.getElementById('result').innerHTML  = total_cost ;
+      document.getElementById('result2').innerHTML  = total_cost ;
+    };
+
+    $(document).ready(function(){
+     $('#booking_seats').change(function(){
+        myFunction()
+      });
+    });
+
+   </script>
+
+ <% end %>
+
+<!-- <div id="confirm" class="modal hide fade">
+  <div class="modal-body">
+    <%#= cost_text %>
+  </div>
+  <div class="modal-footer">
+    <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+  </div>
+
+ -->
+<%# content_for :after_js do %>
+
+ <!--   <script type="text/javascript">
   //   $( "form" ).change(function() {
-  //     var seats = <%= @table.available_seats %>
+  //     var seats = <%#= @table.available_seats %>
   //     if ($('.valtest').val() > seats  ) {
   //       alert ("There are only " + seats + " seats available");
   //     }
@@ -58,13 +111,17 @@
        //  return;
        // };
 
-       var cost = $('#booking_seats').val() * <%= @table.per_seat %>
-       var confirm = window.confirm("Total cost of your booking is €" + cost + " click ok to confirm");
-       if( confirm === false ){
+       var cost = $('#booking_seats').val() * <%#= @table.per_seat %>
+       var cost_text = "Total cost of your booking is €" + cost + " please Confirm"
+       //var confirm = window.confirm("Total cost of your booking is €" + cost + " click ok to confirm");
+       //if( confirm === false ){
         e.preventDefault();
-       };
-     });
+       //};
+       $('#confirm').modal({ backdrop: 'static', keyboard: false })
+        .one('click', '#delete', function (e) {
+            $form.trigger('submit');
+      });
+  });
+  </script> -->
 
-  </script>
-
-<% end %>
+<%# end %>
