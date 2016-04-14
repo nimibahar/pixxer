@@ -41,6 +41,7 @@
   justify-content: center;
   text-align: center;
   align-items: flex-end;
+  margin: auto;
   height: 40px;
   width: 240px;
   @extend .z-depth-1;
@@ -66,6 +67,11 @@
   border: 0.6px solid black;
 }
 
+.join-button-backside {
+  margin: auto;
+
+}
+
 .event-list {
   display: flex;
   justify-content: space-between;
@@ -81,7 +87,7 @@
   background-color: #3b5998;
   text-decoration: none;
   font-size: 18px;
-  color: white;
+  color: white !important;
 }
 
 .btn-facebook:hover {
