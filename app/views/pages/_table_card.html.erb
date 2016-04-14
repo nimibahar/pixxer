@@ -27,27 +27,26 @@
 
     <!--Back Side-->
     <div class="face card-rotating__back z-depth-1">
-        <div class="text-left small">
+      <div class="text-left small">
 
-          <% table.bookings.order(:id).each do |booking|  %>
+        <% table.bookings.order(:id).each do |booking|  %>
 
-            <div class="row">
-              <div class="col-sm-2" style="padding-left: 35px;">
-                <%= image_tag(booking.user.picture,  class: "avatar-large") %>
-              </div>
-
-              <div class="col-sm-10">
-                <span class="mark">
-                  <%= booking.user.first_name %> <%=booking.user.last_name %>
-                </span>
-                Booked <%= booking.seats %> seats <br>
-                Comments: <%= booking.description %>
-              </div>
+          <div class="row team">
+            <%= image_tag(booking.user.picture,  class: "avatar-large") %>
+            <span class="mark">
+              <%= booking.user.first_name %> <%=booking.user.last_name %>
+            </span>
+            <div class="teammember-details">
+              Booked <%= booking.seats %> seats <br>
+              Personal message: <%= booking.description %>
             </div>
-          <% end %>
-        </div>
+          </div>
+      <% end %>
+      </div>
 
-      <p class="card-content text-center">Subheading</p>
+
+      <div><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id), class: 'join-button' %>
+      </div>
         <!-- <br> Lorem ipsum</p>
         <hr> Lorem ipsum
         <br> Lorem ipsum
@@ -59,8 +58,9 @@
 
     <!--Triggering button-->
       <a class="rotate-btn" style="color: black;" data-card="card-<%=index%>">
-        <i class="fa fa-undo"> Click here to rotate back</i>
+        Go Back <i class="fa fa-undo"></i>
       </a>
+      <h6>This table has <%= table.available_seats %> available seats out of <%= table.seats %> seats</h6>
       <div class="sm-container">
         <ul class="list-inline card-sm">
           <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
@@ -68,9 +68,6 @@
           <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
           <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
         </ul>
-        <h6>This table has <%= table.available_seats %> available seats out of <%= table.seats %> seats</h6>
-        <div class="join-button-backside"><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %>
-        </div>
       </div>
     </div>
     <!--/.Back Side-->
