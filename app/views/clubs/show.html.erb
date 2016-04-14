@@ -2,26 +2,26 @@
 <div class="container">
   <div class="row text-center">
     <div class="col-xs-12" style="padding: 40px 0;">
-        <h2><span class="Roboto-Bold"> Club <%= @club.name %> - <%= @club.description %></span>
+      <h2><span class="Roboto-Bold"> Club <%= @club.name %> - <%= @club.description %></span>
         <h3><span class="Roboto-Bold"style="opacity: .3;"><%= @club.address %>, <%= @club.city %></span>
-    </div>
-  </div>
-</div>
-
-
-<div class="container">
-  <% @club.photos.each do |photo| %>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <%= cl_image_tag photo.photo, height: 300, crop: :fill, class: "fuckoff" %>
+        </div>
       </div>
-    <% end %>
     </div>
-    <%#= link_to "Events", events_path(club_id: @club.id), class:"btn btn-default" %>
-  </div>
-</div>
 
-<div class="divider-new text-center">Upcoming events</div>
+
+    <div class="container">
+      <% @club.photos.each do |photo| %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <%= cl_image_tag photo.photo, height: 300, crop: :fill, class: "fuckoff" %>
+        </div>
+        <% end %>
+      </div>
+      <%#= link_to "Events", events_path(club_id: @club.id), class:"btn btn-default" %>
+    </div>
+  </div>
+
+  <div class="divider-new text-center">Upcoming events</div>
 
 
 <div class="container">
@@ -29,35 +29,56 @@
     <% @events.each do |event| %>
     <% @club_id = event.club_id %>
     <% @club = Club.find(@club_id) %>
-    <div class="col-xs-12 col-md-4">
-      <%= link_to event_path(event) do %>
-      <div class="card small card-product hoverable">
-        <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
-          <div class="card-thumbnail-price"><%="Tables starts at $ " + event.cheapest_table + " " %> </div>
-        </div>
+      <div class="col-xs-12 col-md-4">
+        <%= link_to event_path(event) do %>
 
-          <div class="row">
-            <div class="col-xs-4 col-xs-offset-4">
-              <ul class="list-inline event-list">
-                <li><%= event.starts_at.strftime("%-d %b") %></li>
-                <li><%= @club.name %></li>
-                <li><%= @club.city %></li>
-              </ul>
+        <div class="card small card-product hoverable">
+
+          <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
+            <div class="card-thumbnail-price"><%="Tables starts at $ " + event.cheapest_table + " " %>
             </div>
           </div>
 
+          <div class="events-data">
+            <ul class="list-inline">
+              <li><%= event.starts_at.strftime("%-d %b") %></li>
+            </ul>
+          </div>
 
-
-          <div class="row">
-            <div class="col-xs-12-col-xs-offset-2 col-md-4">
+          <div class="events-data-cta">
+            <div class="description">
               <%= link_to "Book table and invite ppl", event_path(event), class: "join-button" %>
             </div>
           </div>
 
-      </div>
 
+
+          <!-- <div class="row events-data">
+            <div class="col-xs-12 col-md-4">
+              <ul class="list-inline event-list">
+                <li><%#= event.starts_at.strftime("%-d %b") %></li>
+                <li><%#= @club.name %></li>
+                <li><%#= @club.city %></li>
+              </ul>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="row" -->
+            <!-- <div class="col-xs-12 col-md-4">
+              <div class="events-data-cta"> -->
+                <%#= link_to "Book table and invite ppl", event_path(event), class: "join-button" %>
+              <!-- </div>
+            </div>
+          </div>
+
+        </div> -->
+
+        </div>
+
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <% end %>
 </div>
-</div>
+
+
+
