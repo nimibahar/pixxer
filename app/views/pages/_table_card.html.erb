@@ -20,14 +20,13 @@
       <a class="rotate-btn" style="color: black;" data-card="card-<%=index%>"><!-- <i class="fa fa-repeat"> --> Meet the team<!-- </i> --></a>
 
 
-      <div class="join-button"><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %>
+      <div><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id), class: 'join-button' %>
       </div>
     </div>
     <!--/.Front Side-->
 
     <!--Back Side-->
     <div class="face card-rotating__back z-depth-1">
-      <h4><%= table.seats - table.available_seats %> Bookings</h4>
         <div class="text-left small">
 
           <% table.bookings.order(:id).each do |booking|  %>
@@ -59,7 +58,7 @@
         <br> -->
 
     <!--Triggering button-->
-      <a class="rotate-btn" data-card="card-<%=index%>">
+      <a class="rotate-btn" style="color: black;" data-card="card-<%=index%>">
         <i class="fa fa-undo"> Click here to rotate back</i>
       </a>
       <div class="sm-container">
@@ -69,6 +68,9 @@
           <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
           <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
         </ul>
+        <h6>This table has <%= table.available_seats %> available seats out of <%= table.seats %> seats</h6>
+        <div class="join-button-backside"><%= link_to "Join this Table", new_booking_path(table, club_id: table.event.club.id, event_id: table.event.id, table_id: table.id) %>
+        </div>
       </div>
     </div>
     <!--/.Back Side-->

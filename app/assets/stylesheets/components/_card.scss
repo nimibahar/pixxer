@@ -1,3 +1,13 @@
+.card-thumbnail-price {
+  display: flex;
+  align-items: flex-end;
+  background-color: #FF5B5B;
+  position: absolute;
+  color: #BFBDBD;
+  font-weight: 300;
+  padding-right: 5px;
+}
+
 .card-category {
   padding-bottom: 10px;
   padding-top: 10px;
@@ -8,31 +18,31 @@
   color: #9A9797;
 }
 
-.card-event-new {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border:0.6 solid black;
-  details {
-    height: 80px;
-    width: 100%;
-    border-top: 0.6 solid black;
-    .date {
-    }
-    .gen {
-      .dj {
+// .card-event-new {
+//   min-height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   border:0.6 solid black;
+//   details {
+//     height: 80px;
+//     width: 100%;
+//     border-top: 0.6 solid black;
+//     .date {
+//     }
+//     .gen {
+//       .dj {
 
-      }
-      .clb {
+//       }
+//       .clb {
 
-      }
-      .loc {
+//       }
+//       .loc {
 
-      }
-    }
-  }
-}
+//       }
+//     }
+//   }
+// }
 
 .card-club-pics {
   display: flex;
@@ -42,6 +52,7 @@
   background-size: cover;
   background-position: center center;
   border-color: solid 2px white;
+
 
 }
 
@@ -248,7 +259,39 @@
 }
 
 .fb-share-button {
+  height: 40px;
   width: 100px;
+  border: 0.6px solid #3B5998;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  background-color: white;
+  color: #3B5998;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 108px;
+}
+
+
+.btn-facebook {
+  height: 40px;
+  border: 0.6px solid #3B5998;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  background-color: white;
+  color: #3B5998;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 108px;
+}
+
+#fbbtn {
+  color:white;
+}
+
+#fbbtn:hover {
+  color: #3B5998;
 }
 
 

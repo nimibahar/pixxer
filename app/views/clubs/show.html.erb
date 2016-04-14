@@ -8,7 +8,6 @@
   </div>
 </div>
 
-<div class="divider-new"><%= @club.name %></div>
 
 <div class="container">
   <% @club.photos.each do |photo| %>
@@ -35,7 +34,7 @@
       <%= link_to event_path(event) do %>
       <div class="card small card-product hoverable">
         <div class='card-thumbnail' style="background-image: url('<%= image_url event.photos.first.try(:photo) %>');" >
-          <div class="price"><%="Tables starts @" + event.cheapest_table + " " + "$"%></div>
+          <div class="card-thumbnail-price"><%="Tables starts at $ " + event.cheapest_table + " " %> </div>
         </div>
         <div class="continer">
           <div class="row">
