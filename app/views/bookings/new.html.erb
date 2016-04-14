@@ -1,3 +1,27 @@
+<div class="container text-center">
+  <% if @table.user_id? %>
+    <div class='table-pictures'>
+      <div class="table-row">
+          <%= image_tag(@table.user.picture,  class: "avatar-host") %>
+      </div>
+      <div class="table-row">
+        <% host = @table.user_id %>
+        <% @table.bookings.each do |booking| %>
+          <% if !(booking.user_id == host) %>
+            <%= image_tag(booking.user.picture,  class: "avatar") %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%= @table.preferences %>
+
+
+
+
 <h3 class="text-center">Table Booking </h3>
 <%= render '/shared/event' %>
 <p class="text-center"> Table of <%= @table.seats %> seats - with <%= @table.available_seats %> seats available </p>

@@ -30,7 +30,7 @@ Photo.create(club_id: c.id, photo: open("http://res.cloudinary.com/pbarua/image/
 sleep(1)
 e = Event.create(club_id: c.id, starts_at: "2016-5-27",
     description: "Yellow Claw from Amsterdam", event_type: "DJ playing wide genre",
-    dress_code: "Casual")
+    dress_code: "Smart", artist: "Avicii")
 
 Photo.create(event_id: e.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459943569/xd44lxpuwmjuf6insbda.jpg"))
 sleep(1)
@@ -48,8 +48,8 @@ end
   Table.create(seats: 15, available_seats: 15, price: 900, per_seat: 60, payment_status: "empty", preferences: "Beer", event_id: e.id)
 end
 e1 = Event.create(club_id: c.id, starts_at: "2016-5-9",
-    description: "David Guetta", event_type: "French DJ and Remixer",
-    dress_code: "Casual")
+    description: "High end party", event_type: "French DJ and Remixer",
+    dress_code: "Smart", artist: "David Guetta")
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944537/po8vl9a6roljivi70gmy.jpg"))
 sleep(1)
 Photo.create(event_id: e1.id, photo: open("http://res.cloudinary.com/pbarua/image/upload/v1459944514/zco5dxutbaxliisjj8xp.jpg"))

@@ -9,7 +9,7 @@
   // border-radius: 1em;
   line-height: 40px;
   // background-color: #133959 ;
-  color: #133959 ;
+  color: #133959;
   font-size: 20px;
   border: 0.6px solid #133959 ;
   // background: linear-gradient(45deg, white 50%, white 50%);
@@ -24,7 +24,7 @@
    background-size: 260% 100%;
    background-position:left bottom;
    transition: all 0.2s ease;
-   color: white;
+   color: white !important;
    border: 0.6px solid black;
 
 
@@ -41,6 +41,7 @@
   justify-content: center;
   text-align: center;
   align-items: flex-end;
+  margin: auto;
   height: 40px;
   width: 240px;
   @extend .z-depth-1;
@@ -54,7 +55,6 @@
   background: linear-gradient(45deg, white 50%, white 50%);
   background-size: 220% 100%;
   background-position:right bottom;
-
 }
 
 
@@ -65,6 +65,11 @@
   transition: all 0.2s ease;
   color: white;
   border: 0.6px solid black;
+}
+
+.join-button-backside {
+  margin: auto;
+
 }
 
 .event-list {
@@ -82,7 +87,7 @@
   background-color: #3b5998;
   text-decoration: none;
   font-size: 18px;
-  color: white;
+  color: white !important;
 }
 
 .btn-facebook:hover {
