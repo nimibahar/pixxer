@@ -57,7 +57,7 @@
         <%= f.button :submit %>
 
       </div>
-              <% end %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -91,7 +91,7 @@
 <%# content_for :after_js do %>
 
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -100,20 +100,20 @@
       </div>
       <div class="modal-body text-center">
 
-        <%= "The total cost works out to €" %>  <span id="result2"><%= @table.per_seat %></span>
+        <%#= "The total cost works out to €" %>  <span id="result2"><%#= @table.per_seat %></span>
       </div>
       <div class="modal-footer valign">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <%= f.button :submit %>
+        <%#= f.button :submit %>
 
       </div>
-              <% end %>
+              <#% end %>
     </div>
   </div>
 </div>
 
 
-<%= content_for :after_js do %>
+<%#= content_for :after_js do %>
   <script>
 
     function myFunction() {
@@ -131,7 +131,7 @@
 
    </script>
 
- <% end %>
+ <%# end %> -->
 
 <!-- <div id="confirm" class="modal hide fade">
   <div class="modal-body">
