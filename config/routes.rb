@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :events, :tables
   resources :bookings, only: [:create, :new, :destroy]
 
+  get 'bookings/new/:club_id/:event_id/:table_id', to: "bookings#new", as: "facebook"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
